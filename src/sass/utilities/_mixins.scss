@@ -1,0 +1,34 @@
+@mixin mobile {
+	@media only screen and (min-width: 0) and (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin hd {
+	@media only screen and (min-width: 1500px) {
+		@content;
+	}
+}
+
+@mixin font-face($font, $family, $weight, $style) {
+    $filepath: "../fonts/" + $font + "-" + $family + "/" + $font + "-" + $family;
+    @font-face {
+        font-family: "#{$font}";
+        src: 	url($filepath + ".eot");
+        src: 	url($filepath + ".eot?#iefix") format('embedded-opentype'), 
+        		url($filepath + ".ttf")  format('truetype'), 
+        		url($filepath + ".woff") format('woff');
+        font-weight: $weight;
+        font-style: $style;
+        font-stretch: normal;
+        unicode-range: U+0020-2044;
+    }
+}
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	display: block;
+	content: "";
+	width: 100%;
+	padding-top: ($height / $width) * 100%;
+}

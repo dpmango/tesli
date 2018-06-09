@@ -1,0 +1,280 @@
+@@include('_componenets/page-header.html')
+
+
+<body>
+<div id="barba-wrapper" class="wrapper page" role="page">
+	<div class="container">
+		<div class="wrapper body">
+			@@include('_componenets/header.html')
+
+		
+			<aside class="sidebar sidebar-left">
+				<div class="sidebar__people sidebar__people-birth">
+					<h3>Дни рождения</h3>
+
+					<div class="sidebar__people__list">
+						@@for (var i = 0; i < 2; i++) {
+						<a href="#" class="sidebar__people__user">
+							<div class="sidebar__people__user__photo">
+								<div class="sidebar__people__user__photo__img cover"><img src="img/ps_img/user-2.jpg"></div>
+							</div>
+
+							<div class="sidebar__people__user__info">
+								<div class="sidebar__people__user__date">19 февраля</div>
+								<div class="sidebar__people__user__name">Горбунов Игорь</div>
+								<div class="sidebar__people__user__post">Руководитель отдела продаж</div>
+							</div>
+						</a>
+
+						<a href="#" class="sidebar__people__user">
+							<div class="sidebar__people__user__photo">
+								<div class="sidebar__people__user__photo__img cover"><img src="img/ps_img/user-3.jpg"></div>
+							</div>
+
+							<div class="sidebar__people__user__info">
+								<div class="sidebar__people__user__date">21 февраля</div>
+								<div class="sidebar__people__user__name">Гаврилова Татьяна</div>
+								<div class="sidebar__people__user__post">Директор Филиала</div>
+							</div>
+						</a>
+						}
+					</div>
+				</div>
+
+				<div class="sidebar__people sidebar__people-colleagues">
+					<h3>Новые сотрудники</h3>
+
+					<div class="sidebar__people__list">
+						@@for (var i = 0; i < 2; i++) {
+						<a href="#" class="sidebar__people__user">
+							<div class="sidebar__people__user__photo">
+								<div class="sidebar__people__user__photo__img cover"><img src="img/ps_img/user-2.jpg"></div>
+							</div>
+
+							<div class="sidebar__people__user__info">
+								<div class="sidebar__people__user__date">19 февраля</div>
+								<div class="sidebar__people__user__name">Горбунов Игорь</div>
+								<div class="sidebar__people__user__post">Руководитель отдела продаж</div>
+							</div>
+						</a>
+
+						<a href="#" class="sidebar__people__user">
+							<div class="sidebar__people__user__photo">
+								<div class="sidebar__people__user__photo__img cover"><img src="img/ps_img/user-3.jpg"></div>
+							</div>
+
+							<div class="sidebar__people__user__info">
+								<div class="sidebar__people__user__date">21 февраля</div>
+								<div class="sidebar__people__user__name">Гаврилова Татьяна</div>
+								<div class="sidebar__people__user__post">Директор Филиала</div>
+							</div>
+						</a>
+						}
+					</div>
+				</div>
+			</aside>
+
+
+			<div class="body__main">
+				<div class="main_slideshow">
+					<div class="swiper-container js-slider-fade">
+					    <div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#" class="main_slideshow__item cover"><img src="img/ps_img/slideshow-1.jpg"></a>
+							</div>
+
+							<div class="swiper-slide">
+								<a href="#" class="main_slideshow__item cover"><img src="img/ps_img/slideshow-2.jpg"></a>
+							</div>
+						</div>
+
+						<div class="swiper-pagination"></div>
+
+						<div class="main_slideshow__title">
+							<div class="main_slideshow__subtitle">ПОМОЩЬ</div>
+							<div class="main_slideshow__maintitle">HR</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="interesting">
+					<h2>Самое интересное</h2>
+
+					<div class="interesting__list">
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-rating"})</div>
+							<div class="interesting__item__title">HR-награды Tesli</div>
+							<div class="interesting__item__subtitle">Отмечаем лучших сотрудников</div>
+						</a>
+						
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-gift"})</div>
+							<div class="interesting__item__title">Конкурсы и акции</div>
+							<div class="interesting__item__subtitle">Участвуйте и побеждайте!</div>
+						</a>
+						
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-learning"})</div>
+							<div class="interesting__item__title">Программа стажировок для сотрудинков</div>
+							<div class="interesting__item__subtitle">Начните успешную карьеру!</div>
+						</a>
+						
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-airplane"})</div>
+							<div class="interesting__item__title">Travel-политика</div>
+							<div class="interesting__item__subtitle">Путешествуем вместе по всему миру одним дружным коллективом</div>
+						</a>
+						
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-light-bulb"})</div>
+							<div class="interesting__item__title">Фабрика идей</div>
+							<div class="interesting__item__subtitle">Поделитесь своей идеей</div>
+						</a>
+						
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-microphone"})</div>
+							<div class="interesting__item__title">Радио Tesli</div>
+							<div class="interesting__item__subtitle">Лучшая музыка в одном месте</div>
+						</a>
+						
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-airplane"})</div>
+							<div class="interesting__item__title">Travel-политика</div>
+							<div class="interesting__item__subtitle">Путешествуем вместе</div>
+						</a>
+
+						<a href="#" class="interesting__item">
+							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-light-bulb"})</div>
+							<div class="interesting__item__title">Фабрика идей</div>
+							<div class="interesting__item__subtitle">Поделитесь своей идеей</div>
+						</a>
+					</div>
+				</div>
+
+
+				<main class="wrapper content" role="main">
+					<div class="wrapper news">
+						<h2>Новости</h2>
+
+						<div class="news__list">
+							@@for (var i = 0; i < 3; i++) {
+							<div class="news__item">
+								<a href="#" class="news__item__link">
+									<div class="news__item__image"><div class="news__item__image_inner cover"><img src="img/ps_img/news-1.jpg"></div></div>
+
+									<div class="news__item__title">Сотрудники компании «Тесли» узнали о скрытых преимуществах теплых полов</div>
+								</a>
+
+								<div class="news__item__desc">Мы узнали много нового о продукции датского концерна Данфосс, о заводах и процессе производства, а также о том, как правильно рассчитывать и подбирать оборудование.</div>
+							</div>
+
+							<div class="news__item">
+								<a href="#" class="news__item__link">
+									<div class="news__item__image"><div class="news__item__image_inner cover"><img src="img/ps_img/news-2.jpg"></div></div>
+
+									<div class="news__item__title">Победа команды «Тесли» в чемпионате по мини-футболу</div>
+								</a>
+
+								<div class="news__item__desc">На прошлой неделе завершился IV Чемпионат Костромской области по мини-футболу. Команды собрались со всей области, поэтому турнир выдался тяжелым. Для команды «Тесли» последняя игра с командой «Сбербанк»</div>
+							</div>
+							}
+						</div>
+
+						<div class="pagination">
+							<span class="pagination__item is-current">1</span>
+							<a href="#" class="pagination__item">2</a>
+							<a href="#" class="pagination__item">3</a>
+							<span>...</span>
+							<a href="#" class="pagination__item">8</a>
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+
+
+		<aside class="sidebar sidebar-right">
+			<div class="main_user">
+				<div class="main_main_user__head">
+					<div class="main_user__head__photo">
+						<div class="main_user__head__photo__img cover"><img src="img/ps_img/user-1.jpg"></div>
+					</div>
+			
+					<div class="main_user__head__info">
+						<div class="main_user__head__name">Дмитрий Овчинников</div>
+						<div class="main_user__head__post">Старший менеджер</div>
+					</div>
+
+					<div class="main_user__hamburger">
+						<div class="hamburger hamburger--squeeze js-hamburger is-active">
+							<div class="hamburger-box">
+								<div class="hamburger-inner"></div>
+							</div>
+						</div>
+				    </div>
+				</div>
+
+				<div class="main_user__inner">
+					<div class="main_user__menu">
+						<a href="#" class="main_user__menu__link"><span>Живая лента</span></a>
+						<a href="#" class="main_user__menu__link"><span>Задачи</span><span class="bundle bundle-red">2</span></a>
+						<a href="#" class="main_user__menu__link"><span>Группы</span></a>
+						<a href="#" class="main_user__menu__link"><span>Сообщения</span></a>
+						<a href="#" class="main_user__menu__link"><span>Моя страница</span></a>
+						<a href="#" class="main_user__menu__link"><span>Заявки</span></a>
+						<a href="#" class="main_user__menu__link"><span>Мой профайл</span></a>
+					</div>
+
+					<div class="main_user__other">
+						<div class="main_user__other__item">
+							<a href="#" class="main_user__other__link">
+								<div class="main_user__other__link__image"><i class="icon icon-1c"></i></div>
+								<span>Портал</span>
+							</a>
+						</div>
+						<div class="main_user__other__item">
+							<a href="#" class="main_user__other__link">
+								<div class="main_user__other__link__image"><i class="icon icon-support"></i></div>
+								<span>Техподдержка</span>
+							</a>
+						</div>
+						<div class="main_user__other__item">
+							<a href="#" class="main_user__other__link">
+								<div class="main_user__other__link__image"><i class="icon icon-gismeteo"></i></div>
+								<span>Gismeteo</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<a href="#" class="main_user__btn-logout"><span>Выйти</span>@@include('_modules/_svg-ico.html', {"href": "ico-logout"})</a>
+			</div>
+
+			<div class="sidebar__banner_slideshow js-slider">
+				<div class="swiper-container js-slider">
+				    <div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="#"><img src="img/ps_img/sidebar_banner-1.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="img/ps_img/sidebar_banner-1.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="img/ps_img/sidebar_banner-1.jpg"></a>
+						</div>
+					</div>
+
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</aside>
+	</div>
+</div>
+
+
+@@include('_componenets/footer.html')
+</body>
+
+
+@@include('_componenets/page-footer.html')

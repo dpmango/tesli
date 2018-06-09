@@ -1,0 +1,97 @@
+$sprite: (
+  icon-1c: (
+    offset-x: 0px,
+    offset-y: 0px,
+    width: 46px,
+    height: 26px,
+    total-width: 76px,
+    total-height: 50px,
+    image: '../img/sprite.png'
+  ),
+  icon-gismeteo: (
+    offset-x: -46px,
+    offset-y: 0px,
+    width: 30px,
+    height: 21px,
+    total-width: 76px,
+    total-height: 50px,
+    image: '../img/sprite.png'
+  ),
+  icon-support: (
+    offset-x: 0px,
+    offset-y: -26px,
+    width: 26px,
+    height: 24px,
+    total-width: 76px,
+    total-height: 50px,
+    image: '../img/sprite.png'
+  ),
+);
+
+
+@mixin sprite-size($image) {
+  background-size: map-get(map-get($sprite, $image), 'total-width') map-get(map-get($sprite, $image), 'total-height');
+}
+
+@mixin sprite-width($image) {
+  width: map-get(map-get($sprite, $image), 'width');
+}
+
+@mixin sprite-height($image) {
+  height: map-get(map-get($sprite, $image), 'height');
+}
+
+@mixin sprite-position($image) {
+  background-position: map-get(map-get($sprite, $image), 'offset-x') map-get(map-get($sprite, $image), 'offset-y');
+}
+
+@mixin sprite-image($image) {
+  background-image: url(map-get(map-get($sprite, $image), 'image'));
+}
+
+@mixin sprite-image-retina($image) {
+  $image-path: map-get(map-get($sprite, $image), 'image');
+  $image-path-retina: str-slice($image-path, 1, str-index($image-path, '.png') - 1) + '@2x.png';
+
+  background-image: url($image-path-retina);
+}
+
+@mixin sprite($image, $size: true) {
+  &:before {
+    content: '';
+    display: inline-block;
+    @include sprite-image($image);
+    @include sprite-position($image);
+    background-repeat: no-repeat;
+
+    @if $size {
+      @include sprite-width($image);
+      @include sprite-height($image);
+    }
+
+    @media
+      only screen and (-webkit-min-device-pixel-ratio: 2),
+      only screen and (   min--moz-device-pixel-ratio: 2),
+      only screen and (     -o-min-device-pixel-ratio: 2/1),
+      only screen and (        min-device-pixel-ratio: 2),
+      only screen and (                min-resolution: 192dpi),
+      only screen and (                min-resolution: 2dppx) {
+
+      @include sprite-size($image);
+      @include sprite-image-retina($image);
+
+    }
+  }
+}
+
+
+
+.icon-1c {
+  @include sprite(icon-1c)
+}
+.icon-gismeteo {
+  @include sprite(icon-gismeteo)
+}
+.icon-support {
+  @include sprite(icon-support)
+}
