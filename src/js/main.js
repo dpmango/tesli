@@ -21,10 +21,10 @@ $(document).ready(function(){
   ////////////
   function pageReady(){
     legacySupport();
-    updateHeaderActiveClass();
-    initHeaderScroll();
+    // updateHeaderActiveClass();
+    // initHeaderScroll();
 
-    initPopups();
+    // initPopups();
     initSliders();
     // initScrollMonitor();
     // initMasks();
@@ -32,9 +32,9 @@ $(document).ready(function(){
     // initValidations();
 
     // development helper
-    _window.on('resize', function() {
-    	debounce(setBreakpoint, 200);
-    });
+    // _window.on('resize', function() {
+    // 	debounce(setBreakpoint, 200);
+    // });
 
     // AVAILABLE in _components folder
     // copy paste in main.js and initialize here
@@ -521,126 +521,125 @@ $(document).ready(function(){
   }
 
 
-  //////////
-  // BARBA PJAX
-  //////////
-  var easingSwing = [.02, .01, .47, 1]; // default jQuery easing for anime.js
+  // //////////
+  // // BARBA PJAX
+  // //////////
+  // var easingSwing = [.02, .01, .47, 1]; // default jQuery easing for anime.js
 
-  Barba.Pjax.Dom.containerClass = "page";
+  // Barba.Pjax.Dom.containerClass = "page";
 
-  var FadeTransition = Barba.BaseTransition.extend({
-    start: function() {
-      Promise
-        .all([this.newContainerLoading, this.fadeOut()])
-        .then(this.fadeIn.bind(this));
-    },
+  // var FadeTransition = Barba.BaseTransition.extend({
+  //   start: function() {
+  //     Promise
+  //       .all([this.newContainerLoading, this.fadeOut()])
+  //       .then(this.fadeIn.bind(this));
+  //   },
 
-    fadeOut: function() {
-      var deferred = Barba.Utils.deferred();
+  //   fadeOut: function() {
+  //     var deferred = Barba.Utils.deferred();
 
-      anime({
-        targets: this.oldContainer,
-        opacity : .5,
-        easing: easingSwing, // swing
-        duration: 300,
-        complete: function(anim){
-          deferred.resolve();
-        }
-      })
+  //     anime({
+  //       targets: this.oldContainer,
+  //       opacity : .5,
+  //       easing: easingSwing, // swing
+  //       duration: 300,
+  //       complete: function(anim){
+  //         deferred.resolve();
+  //       }
+  //     })
 
-      return deferred.promise
-    },
+  //     return deferred.promise
+  //   },
 
-    fadeIn: function() {
-      var _this = this;
-      var $el = $(this.newContainer);
+  //   fadeIn: function() {
+  //     var _this = this;
+  //     var $el = $(this.newContainer);
 
-      $(this.oldContainer).hide();
+  //     $(this.oldContainer).hide();
 
-      $el.css({
-        visibility : 'visible',
-        opacity : .5
-      });
+  //     $el.css({
+  //       visibility : 'visible',
+  //       opacity : .5
+  //     });
 
-      anime({
-        targets: "html, body",
-        scrollTop: 1,
-        easing: easingSwing, // swing
-        duration: 150
-      });
+  //     anime({
+  //       targets: "html, body",
+  //       scrollTop: 1,
+  //       easing: easingSwing, // swing
+  //       duration: 150
+  //     });
 
-      anime({
-        targets: this.newContainer,
-        opacity: 1,
-        easing: easingSwing, // swing
-        duration: 300,
-        complete: function(anim) {
-          triggerBody()
-          _this.done();
-        }
-      });
-    }
-  });
+  //     anime({
+  //       targets: this.newContainer,
+  //       opacity: 1,
+  //       easing: easingSwing, // swing
+  //       duration: 300,
+  //       complete: function(anim) {
+  //         triggerBody()
+  //         _this.done();
+  //       }
+  //     });
+  //   }
+  // });
 
-  // set barba transition
-  Barba.Pjax.getTransition = function() {
-    return FadeTransition;
-  };
+  // // set barba transition
+  // Barba.Pjax.getTransition = function() {
+  //   return FadeTransition;
+  // };
 
-  Barba.Prefetch.init();
-  Barba.Pjax.start();
+  // Barba.Prefetch.init();
+  // Barba.Pjax.start();
 
-  Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
+  // Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
 
-    pageReady();
-    closeMobileMenu();
+  //   pageReady();
 
-  });
+  // });
 
-  // some plugins get bindings onNewPage only that way
-  function triggerBody(){
-    _window.scrollTop(0);
-    $(window).scroll();
-    $(window).resize();
-  }
+  // // some plugins get bindings onNewPage only that way
+  // function triggerBody(){
+  //   _window.scrollTop(0);
+  //   $(window).scroll();
+  //   $(window).resize();
+  // }
 
   //////////
   // MEDIA Condition helper function
   //////////
-  function mediaCondition(cond){
-    var disabledBp;
-    var conditionMedia = cond.substring(1);
-    var conditionPosition = cond.substring(0, 1);
+  // function mediaCondition(cond){
+  //   var disabledBp;
+  //   var conditionMedia = cond.substring(1);
+  //   var conditionPosition = cond.substring(0, 1);
 
-    if (conditionPosition === "<") {
-      disabledBp = _window.width() < conditionMedia;
-    } else if (conditionPosition === ">") {
-      disabledBp = _window.width() > conditionMedia;
-    }
+  //   if (conditionPosition === "<") {
+  //     disabledBp = _window.width() < conditionMedia;
+  //   } else if (conditionPosition === ">") {
+  //     disabledBp = _window.width() > conditionMedia;
+  //   }
 
-    return disabledBp
-  }
+  //   return disabledBp
+  // }
 
   //////////
   // DEVELOPMENT HELPER
   //////////
-  function setBreakpoint(){
-    var wHost = window.location.host.toLowerCase()
-    var displayCondition = wHost.indexOf("localhost") >= 0 || wHost.indexOf("surge") >= 0
-    if (displayCondition){
-      var wWidth = _window.width();
+  // function setBreakpoint(){
+  //   var wHost = window.location.host.toLowerCase()
+  //   var displayCondition = wHost.indexOf("localhost") >= 0 || wHost.indexOf("surge") >= 0
+  //   if (displayCondition){
+  //     var wWidth = _window.width();
 
-      var content = "<div class='dev-bp-debug'>"+wWidth+"</div>";
+  //     var content = "<div class='dev-bp-debug'>"+wWidth+"</div>";
 
-      $('.page').append(content);
-      setTimeout(function(){
-        $('.dev-bp-debug').fadeOut();
-      },1000);
-      setTimeout(function(){
-        $('.dev-bp-debug').remove();
-      },1500)
-    }
-  }
+  //     $('.page').append(content);
+  //     setTimeout(function(){
+  //       $('.dev-bp-debug').fadeOut();
+  //     },1000);
+  //     setTimeout(function(){
+  //       $('.dev-bp-debug').remove();
+  //     },1500)
+  //   }
+  // }
 
 
 
