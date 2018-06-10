@@ -6,6 +6,15 @@ $(document).ready(function(){
 
   var _window = $(window);
   var _document = $(document);
+  var MobileMax = 767;
+  var Tablet = 768;
+  var TabletMax = 991;
+  var Desktop = 992;
+  var DesktopMax = 1199;
+  var Wide = 1200;
+  var WideMax = 1499;
+  var Hd = 1500;
+
 
   ////////////
   // READY - triggered when PJAX DONE
@@ -17,10 +26,10 @@ $(document).ready(function(){
 
     initPopups();
     initSliders();
-    initScrollMonitor();
-    initMasks();
-    initSelectric();
-    initValidations();
+    // initScrollMonitor();
+    // initMasks();
+    // initSelectric();
+    // initValidations();
 
     // development helper
     _window.on('resize', function() {
@@ -110,15 +119,20 @@ $(document).ready(function(){
   	e.preventDefault();
 
   	if ( Modernizr.mq('(max-width: 1499px)') ) {
+	  	var Body = $('body'),
+	  		HeaderTop = $('.header__top'),
+	  		MainUser = $('.main_user'),
+	  		HeaderSubmenu = $('.header__menu__submenu');
+  	
 	  	if ( $(this).hasClass('is-active') ) {
-			$('body').removeClass('is-overflow');
-			$('.header__top').removeClass('is-active');
-			$('.main_user').removeClass('is-hiden');
-			$('.header__menu__submenu').removeClass('is-active');
+			Body.removeClass('is-overflow');
+			MainUser.removeClass('is-hidden');
+			HeaderTop.removeClass('is-active');
+			HeaderSubmenu.removeClass('is-active');
 		} else {
-			$('body').addClass('is-overflow');
-			$('.header__top').addClass('is-active');
-			$('.main_user').addClass('is-hiden');
+			Body.addClass('is-overflow');
+			MainUser.addClass('is-hidden');
+			HeaderTop.addClass('is-active');
 		}
 
 	    $(this).toggleClass('is-active').closest('.header__top__hamburger').toggleClass('is-active');
@@ -126,16 +140,39 @@ $(document).ready(function(){
 	}
   })
   .on('click', '.header__menu__item.is-parent .header__menu__link', function(e) {
-  	e.preventDefault();
+  	if ( Modernizr.mq('(max-width: '+MobileMax+'px)') ) {
+  		e.preventDefault();
 
-  	if ( Modernizr.mq('(max-width: 1499px)') ) {
-	  	$('.header__menu__submenu').removeClass('is-active');
-	  	$(this).next('.header__menu__submenu').addClass('is-active');
+  		var HeaderSubmenu = $('.header__menu__submenu');
 
-	  	if ( !$(this).next('.header__menu__submenu').find('.header__menu__link')[0] ) {
-	  		$(this).next('.header__menu__submenu').prepend($(this).clone())
+	  	HeaderSubmenu.removeClass('is-active');
+	  	$(this).next(HeaderSubmenu).addClass('is-active');
+
+	  	if ( !$(this).closest('.header__menu__item').find(HeaderSubmenu).find('.header__menu__link')[0] ) {
+	  		$(this).closest('.header__menu__item').find(HeaderSubmenu).prepend($(this).clone())
 	  	}
+  	} else if ( Modernizr.mq('(min-width: '+Tablet+'px)') && (Modernizr.touchevents || Modernizr.pointerevents) ) {
+  		e.preventDefault();
+
+  		$(this).parent('.header__menu__item').toggleClass('is-hover');
   	}
+  })
+  .on('mouseenter', '.header__menu__item.is-parent', function(e) {
+  	if ( Modernizr.mq('(min-width: '+Tablet+'px)') && !Modernizr.touchevents && !Modernizr.pointerevents ) {
+  		$(this).stop().delay(500).queue(function(next) {
+  			$(this).addClass('is-hover');
+  			next();
+  		});
+	}
+  })
+	.on('mouseleave', '.header__menu__item.is-parent', function(e) {
+  	if ( Modernizr.mq('(min-width: '+Tablet+'px)') && !Modernizr.touchevents && !Modernizr.pointerevents ) {
+  		e.stopPropagation();
+	  	e.preventDefault();
+  		$(this).queue(function() {
+  			$(this).removeClass('is-hover').dequeue();
+  		});
+	}
   })
   .on('click', '.main_user__head__photo', function(e) {
   	e.preventDefault();
@@ -154,41 +191,36 @@ $(document).ready(function(){
 		$('.header__top').removeClass('is-active');
 		$(this).closest('.main_user').removeClass('is-active');
 	}
-  })
-  .on('mouseenter', '.header__menu__item.is-parent', function(e) {
-  	if ( Modernizr.mq('(min-width: 1500px)') ) {
-  		$(this).stop().delay(500).queue(function(next) {
-  			$(this).addClass('is-hover');
-  			next();
-  		});
-	}
-  })
-  .on('mouseleave', '.header__menu__item.is-parent', function(e) {
-  	e.stopPropagation();
-  	e.preventDefault();
-
-  	if ( Modernizr.mq('(min-width: 1500px)') ) {
-  		$(this).queue(function() {
-  			$(this).removeClass('is-hover').dequeue();
-  		});
-	}
   });
+  
 
-
-  var Status = '';
-  if ( Modernizr.mq('(min-width: 1500px)') ) {
-  	Status = 'hd';
-  } else {
-  	Status = 'mobile';
-  }
+	var Status = '';
+	if ( Modernizr.mq('(min-width: '+Tablet+'px)') ) {
+		Status = 'tablet';
+	} else {
+		Status = 'mobile';
+	}
 
 	_window.on('resize', function() {
-		if ( Status != 'hd' && Modernizr.mq('(min-width: 1500px)') ) {
-			Status = 'hd';
+		if ( Status != 'tablet' && Modernizr.mq('(min-width: '+Tablet+'px)') ) {
+			Status = 'tablet';
+
 			$('body').removeClass('is-overflow');
-			$('.header__top, .main_user, .header__menu__submenu, .header__top__hamburger .js-hamburger').removeClass('is-active');
-		} else {
+			$('.header__top').removeClass('is-active');
+			$('.main_user').removeClass('is-active is-hidden');
+			$('.header__menu').removeClass('is-active');
+			$('.header__menu__submenu').removeClass('is-active');
+			$('.header__top__hamburger .js-hamburger').removeClass('is-active');
+		} else if ( Status != 'mobile' && Modernizr.mq('(max-width: '+MobileMax+'px)') ) {
 			Status = 'mobile';
+
+			$('body').removeClass('is-overflow');
+			$('.header__top').removeClass('is-active');
+			$('.main_user').removeClass('is-active is-hidden');
+			$('.header__menu').removeClass('is-active');
+			$('.header__menu__submenu').removeClass('is-active');
+			$('.header__top__hamburger .js-hamburger').removeClass('is-active')
+			$('.header__menu__item').removeClass('is-hover');
 		}
 	});
 
@@ -226,7 +258,7 @@ $(document).ready(function(){
 		// freeMode: true,
 		// effect: 'fade',
 		autoplay: {
-			delay: 3000,
+			delay: 3000
 		},
 		navigation: {
 			nextEl: '.swiper-next',
@@ -246,10 +278,10 @@ $(document).ready(function(){
   	};
 
     // EXAMPLE SWIPER
-    new Swiper('.js-slider', SwiperOptions)
+    new Swiper('.js-slider', SwiperOptions);
 
     SwiperOptions.effect = 'fade';
-    new Swiper('.js-slider-fade', SwiperOptions)
+    new Swiper('.js-slider-fade', SwiperOptions);
   }
 
   //////////

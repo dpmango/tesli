@@ -1,37 +1,4 @@
-h2 {
-	font-size: 22px;
-	line-height: 26px;
-	margin: 0 0 15px 0;
-	color: #000000;
-	font-weight: 400;
-	font-family: $europedemi;
-}
-h3 {
-	font-size: 16px;
-	line-height: 22px;
-	margin: 0 0 15px 0;
-	color: #000000;
-	font-weight: 400;
-	font-family: $europedemi;
-}
 
-.bundle {
-	display: inline-block;
-	border-radius: 100%;
-	min-width: 18px;
-	height: 18px;
-	text-align: center;
-	line-height: 18px;
-	color: #ffffff;
-	background: $colorRed;
-	font-family: $europedemi;
-	font-size: 10px;
-	margin-left: 8px;
-
-	&.bundle-red {
-		background: $colorRed;
-	}
-}
 
 
 
@@ -40,15 +7,24 @@ h3 {
 	width: 100%;
 	float: left;
 
-	@include hd {
-
+	@include tablet {
+		.container {
+			position: relative;
+		}
 	}
 }
 .header__top {
 	width: 100%;
 	float: left;
 
-	@include hd {
+	@include tablet {
+		height: 66px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		border-right: 1px solid #e2e2e2;
+	}
+	@include wide {
 		height: 96px;
 		display: flex;
 		justify-content: flex-start;
@@ -66,7 +42,7 @@ h3 {
 	background: #ffffff;
 	border-bottom: 1px solid #e2e2e2;
 
-	@include hd {
+	@include tablet {
 		display: flex;
 		width: auto;
 		position: relative;
@@ -82,7 +58,7 @@ h3 {
 	top: 0;
 	margin-right: 10px;
 	opacity: 1;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 
 	.hamburger {
 		width: 46px;
@@ -105,7 +81,7 @@ h3 {
 	.hamburger-inner {
 		width: 26px;
 		height: 2px;
-		background-color: $color-red;
+		background-color: $ColorRed;
 	}
 	.hamburger-inner:before {
 		top: -8px;
@@ -123,7 +99,7 @@ h3 {
 		pointer-events: auto;
 	}
 
-	@include hd {
+	@include tablet {
 		display: none;
 	}
 }
@@ -133,10 +109,10 @@ h3 {
 	position: absolute;
 	top: -50px;
 	left: 50px;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 	font-size: 18px;
 	line-height: 30px;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 	opacity: 0;
 
 	.hamburger.is-active & {
@@ -156,7 +132,7 @@ h3 {
 	top: -100%;
 	opacity: 0;
 	visibility: hidden;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 
 	&.is-active {
 		top: 52px;
@@ -164,7 +140,8 @@ h3 {
 		visibility: visible;
 	}
 
-	@include hd {
+
+	@include tablet {
 		transition: none;
 		top: 0;
 		padding: 0;
@@ -174,17 +151,20 @@ h3 {
 		visibility: visible;
 		opacity: 1;
 		display: flex;
-		justify-content: flex-end;
+		justify-content: space-between;
 		background: #fbfbfb;
 		border: 1px solid #e2e2e2;
 		border-left: none;
+	}
+	@include desktop {
+		justify-content: flex-end;
 	}
 }
 .header__menu__item {
 	width: 100%;
 	float: left;
 
-	@include hd {
+	@include tablet {
 		width: auto;
 		position: relative;
 	}
@@ -208,8 +188,8 @@ h3 {
 	}
 
 	.header__menu__item-school & {
-		font-family: $europedemi;
-		color: $colorRed;
+		font-family: $Europedemi;
+		color: $ColorRed;
 		cursor: pointer;
 
 		i {
@@ -232,7 +212,8 @@ h3 {
 		margin-left: 5px;
 	}
 
-	@include hd {
+	@include tablet {
+		padding: 0 10px;
 		height: 56px;
 		display: flex;
 		align-items: center;
@@ -243,15 +224,15 @@ h3 {
 			bottom: 0;
 			width: 100%;
 			height: 2px;
-			background: $colorRed;
+			background: $ColorRed;
 			content: '';
 			display: block;
 			opacity: 0;
-			transition: $transitionObject;
+			transition: $TransitionObject;
 		}
 
 		.header__menu__item.is-parent.is-hover & {
-			color: $colorRed;
+			color: $ColorRed;
 
 			&:after {
 				opacity: 1;
@@ -262,6 +243,9 @@ h3 {
 			display: none;
 		}
 	}
+	@include desktop {
+		padding: 0 20px;
+	}
 }
 .header__menu__submenu {
 	right: -100%;
@@ -271,7 +255,7 @@ h3 {
 	width: 100%;
 	height: calc(100% - 52px);
 	background: #ffffff;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 	overflow-y: auto;
 
 	&.is-active {
@@ -291,7 +275,7 @@ h3 {
 		}
 	}
 
-	@include hd {
+	@include tablet {
 		position: absolute;
 		top: 100%;
 		right: auto;
@@ -306,7 +290,7 @@ h3 {
 		pointer-events: none;
 		visibility: hidden;
 		opacity: 0;
-		transition: $transitionLink;
+		transition: $TransitionLink;
 
 		.header__menu__item.is-hover & {
 			opacity: 1;
@@ -314,25 +298,34 @@ h3 {
 			z-index: 900;
 			pointer-events: auto;
 		}
+
+		.header__menu__link {
+			display: none;
+		}
+
+		.header__menu__item:last-child & {
+			left: auto;
+			right: -1px;
+		}
 	}
 }
 .header__menu__submenu_school__faculties {
 	width: 100%;
 	float: left;
 
-	@include hd {
+	@include tablet {
 		width: auto;
 		float: left;
 		padding: 0 25px;
 	}
 }
 .header__menu__submenu_school__faculties__title {
-	color: $colorRed;
+	color: $ColorRed;
 	font-size: 16px;
 	line-height: 20px;
 	padding: 20px 14px 10px 14px;
 
-	@include hd {
+	@include tablet {
 		padding: 0 0 10px 0;
 	}
 }
@@ -366,10 +359,10 @@ h3 {
 		font-size: 8px;
 		color: #ffffff;
 		background: #cacaca;
-		font-family: $europedemi;
+		font-family: $Europedemi;
 	}
 
-	@include hd {
+	@include tablet {
 		padding: 8px 0;
 		white-space: nowrap;
 	}
@@ -415,7 +408,7 @@ h3 {
 	float: left;
 	padding: 10px 0;
 
-	@include hd {
+	@include tablet {
 		min-width: 200px;
 		padding: 0 30px;
 		border-left: 1px solid #e2e2e2;
@@ -429,13 +422,13 @@ h3 {
 	line-height: 20px;
 	color: #000000;
 
-	@include hd {
+	@include tablet {
 		padding: 8px 0;
 	}
 }
 
 .header__top__logo {
-	@include hd {
+	@include tablet {
 		float: left;
 		display: flex;
 		align-items: center;
@@ -449,20 +442,24 @@ h3 {
 	display: inline-block;
 	background: url('../img/logo.png') center no-repeat;
 	background-size: contain;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 	opacity: 1;
-
-	.header__top.is-active & {
-		opacity: 0;
-		pointer-events: none;
+	
+	@include mobileMax {
+		.header__top.is-active & {
+			opacity: 0;
+			pointer-events: none;
+		}
 	}
-
-	@include hd {
+	@include tablet {
 		top: 0;
 		background-size: auto;
 		width: 180px;
 		height: 38px;
 		margin-top: 0;
+		margin-left: 0;
+	}
+	@include wide {
 		margin-left: 34px;
 	}
 }
@@ -480,8 +477,19 @@ h3 {
 		width: 100%;
 	}
 
+	@include tablet {
+		top: 0;
+		width: calc(100% - 280px);
+		height: 38px;
+		margin-left: 30px;
+		padding: 0;
+	}
+	@include wide {
+		width: calc(100% - 340px);
+		height: 38px;
+		padding: 0;
+	}
 	@include hd {
-		top: -5px;
 		width: 700px;
 		margin-left: 87px;
 		height: 38px;
@@ -501,7 +509,7 @@ h3 {
 	line-height: 30px;
 	padding-left: 10px;
 
-	@include hd {
+	@include tablet {
 		float: left;
 		width: calc(100% - 38px);
 		padding: 0;
@@ -529,11 +537,11 @@ h3 {
 	&:active,
 	.no-touchevents &:hover {
 		svg {
-			color: $colorRed;
+			color: $ColorRed;
 		}
 	}
 
-	@include hd {
+	@include tablet {
 		top: 0;
 		width: 38px;
 		height: 38px;
@@ -549,9 +557,9 @@ h3 {
 	display: none;
 	font-size: 12px;
 	line-height: 16px;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 
-	@include hd {
+	@include wide {
 		display: block;
 		text-align: right;
 		float: right;
@@ -567,9 +575,10 @@ h3 {
 	flex-wrap: wrap;
 	float: left;
 
+	@include wide {
+		width: calc(100% - 300px);
+	}
 	@include hd {
-		display: flex;
-		flex-wrap: wrap;
 		width: calc(100% - 330px);
 	}
 }
@@ -580,7 +589,7 @@ h3 {
 	order: 0;
 	position: relative;
 
-	@include hd {
+	@include desktop {
 		order: 1;
 		float: none;
 		width: 100px;
@@ -634,7 +643,7 @@ h3 {
 	line-height: 20px;
 	margin-bottom: 4px;
 	color: #000000;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 
 	@include hd {
 		font-size: 24px;
@@ -642,10 +651,10 @@ h3 {
 	}
 }
 .main_slideshow__maintitle {
-	color: $color-red;
+	color: $ColorRed;
 	font-size: 60px;
 	line-height: 50px;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 
 	@include hd {
 		font-size: 90px;
@@ -666,8 +675,7 @@ h3 {
 		border-bottom: 1px solid #e2e2e2;
 	}
 
-	@include hd {
-		padding: 20px 30px;
+	@include tablet {
 		border-bottom: none;
 
 		h2 {
@@ -675,12 +683,18 @@ h3 {
 			margin-bottom: 0;
 		}
 	}
+	@include desktop {
+		padding: 20px 20px;
+	}
+	@include hd {
+		padding: 20px 30px;
+	}
 }
 .interesting__list {
 	width: 100%;
 	float: left;
 
-	@include hd {
+	@include tablet {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-start;
@@ -695,13 +709,13 @@ h3 {
 	padding: 10px 0;
 	color: #000000;
 
-	@include hd {
+	@include tablet {
 		align-content: center;
 		width: calc(100% / 3);
 		height: 160px;
 		position: relative;
 		border-bottom: 1px solid #e2e2e2;
-		padding: 30px 40px 20px 40px;
+		padding: 20px 30px 10px 30px;
 		
 		&:after {
 			width: 1px;
@@ -736,6 +750,17 @@ h3 {
 			}
 		}
 	}
+	@include desktop {
+		padding: 30px 10px 10px 20px;
+	}
+	@include wide {
+		height: 180px;
+		padding: 30px 5px 5px 15px;
+	}
+	@include hd {
+		height: 160px;
+		padding: 30px 20px 20px 40px;
+	}
 }
 .interesting__item__image {
 	float: left;
@@ -750,7 +775,7 @@ h3 {
 		font-size: 30px;
 	}
 
-	@include hd {
+	@include tablet {
 		width: 100%;
 		float: left;
 		height: 50px;
@@ -767,11 +792,17 @@ h3 {
 	margin-left: 60px;
 	font-size: 16px;
 	line-height: 20px;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 	font-weight: 400;
 
-	@include hd {
+	@include tablet {
 		margin: 0;
+	}
+	@include wide {
+		font-size: 14px;
+	}
+	@include hd {
+		font-size: 16px;
 	}
 }
 .interesting__item__subtitle {
@@ -780,21 +811,23 @@ h3 {
 	line-height: 16px;
 	color: #818181;
 
-	@include hd {
+	@include tablet {
 		margin: 0;
 	}
 }
-
 
 .sidebar-right {
 	width: 100%;
 	float: left;
 
-	@include hd {
+	@include wide {
 		display: flex;
 		flex-wrap: wrap;
-		width: 330px;
+		width: 300px;
 		float: right;
+	}
+	@include hd {
+		width: 330px;
 	}
 }
 .main_user {
@@ -805,40 +838,77 @@ h3 {
 	opacity: 1;
 	width: 100%;
 	max-width: 55px;
-	transition: $transitionObject;
+	height: 9999px;
+	max-height: 51px;
+	transition: $TransitionObject;
 
-	&.is-hiden {
+	&.is-hidden {
 		opacity: 0;
 	}
 	&.is-active {
-		height: 100%;
+		max-height: 100%;
 		opacity: 1;
-		max-width: 768px;
+		max-width: 100%;
 	}
 
-	@include hd {
+	@include tablet {
+		background: #ffffff;
+		max-height: 65px;
+		right: 50%;
+		position: absolute;
+		margin-right: - (760px / 2);
+		overflow: hidden;
+
+		&.is-active {
+			max-height: 100vh;
+			max-width: 300px;
+			box-shadow: 0 0 18px 0px rgba(0, 0, 0, 0.09);
+		}
+	}
+	@include desktop {
+		margin-right: - (980px / 2);
+	}
+	@include wide {
+		overflow: visible;
 		opacity: 1;
 		z-index: 10;
 		height: auto;
+		right: 0;
+		margin: 0;
+		max-height: 100%;
 		position: relative;
 		transition: none;
-		max-width: 768px;
-		padding: 0 30px;
+		max-width: 100%;
+		padding: 0 20px;
 		border-bottom: 1px solid #e2e2e2;
 	}
+	@include hd {
+		padding: 0 30px;
+	}
 }
-.main_main_user__head {
+.main_user__head {
 	width: 100%;
-	height: 52px;
+	height: 51px;
 	max-width: 55px;
 	padding: 8px 10px 0 10px;
-	transition: $transitionObject;
+	transition: $TransitionObject;
+	background: #ffffff;
+	z-index: 500;
+	position: relative;
 
 	.main_user.is-active & {
-		max-width: 768px;
+		max-width: 100%;
 	}
 
-	@include hd {
+	@include tablet {
+		padding-top: 15px;
+		height: 65px;
+
+		.main_user.is-active & {
+			max-width: 300px;
+		}
+	}
+	@include wide {
 		display: flex;
 		align-items: center;
 		justify-content: flex-start;
@@ -846,7 +916,7 @@ h3 {
 		border-bottom: 1px solid #e2e2e2;
 		height: 98px;
 		max-width: 768px;
-		padding: 0;
+		padding: 0 40px 0 0;
 		transition: none;
 	}
 }
@@ -854,7 +924,7 @@ h3 {
 	cursor: pointer;
 	float: left;
 
-	@include hd {
+	@include wide {
 		cursor: default;
 	}
 }
@@ -863,7 +933,7 @@ h3 {
 	height: 35px;
 	border-radius: 100%;
 
-	@include hd {
+	@include wide {
 		width: 50px;
 		height: 50px;
 	}
@@ -874,7 +944,7 @@ h3 {
 	margin-left: 50px;
 	left: 100px;
 	visibility: hidden;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 
 	.main_user.is-active & {
 		opacity: 1;
@@ -882,7 +952,7 @@ h3 {
 		visibility: visible;
 	}
 
-	@include hd {
+	@include wide {
 		width: auto;
 		opacity: 1;
 		left: 0;
@@ -894,11 +964,15 @@ h3 {
 .main_user__head__name {
 	font-size: 14px;
 	line-height: 20px;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 	color: #000000;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	white-space: normal;
+	white-space: nowrap;
+
+	@include wide {
+		white-space: normal;
+	}
 }
 .main_user__head__post {
 	font-size: 12px;
@@ -906,14 +980,18 @@ h3 {
 	color: #000000;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	white-space: normal;
+	white-space: nowrap;
+
+	@include wide {
+		white-space: normal;
+	}
 }
 .main_user__hamburger {
 	position: absolute;
-	right: -100px;
+	right: -300px;
 	top: 0;
 	opacity: 0;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 
 	.main_user.is-active & {
 		opacity: 1;
@@ -934,14 +1012,14 @@ h3 {
 		left: 0;
 		vertical-align: top;
 		width: 26px;
-		height: 52px;
+		height: 51px;
 	}
 	.hamburger-inner:after,
 	.hamburger-inner:before,
 	.hamburger-inner {
 		width: 26px;
 		height: 2px;
-		background-color: $color-red;
+		background-color: $ColorRed;
 	}
 	.hamburger-inner:before {
 		top: -8px;
@@ -950,7 +1028,12 @@ h3 {
 		bottom: -8px;
 	}
 
-	@include hd {
+	@include tablet {
+		.hamburger-box {
+			height: 66px;
+		}
+	}
+	@include wide {
 		display: none;
 	}
 }
@@ -958,14 +1041,14 @@ h3 {
 	opacity: 0;
 	visibility: hidden;
 	position: fixed;
-	top: 52px;
+	top: 51px;
 	height: calc(100% - 52px);
 	width: 100%;
 	right: -100%;
-	transition: $transitionObject;
+	transition: $TransitionObject;
 	overflow-y: auto;
+	padding: 10px 14px 20px 14px;
 	background: #ffffff;
-	padding: 10px 24px 50px 24px;
 
 	.main_user.is-active & {
 		opacity: 1;
@@ -973,14 +1056,32 @@ h3 {
 		visibility: visible;
 	}
 
-	@include hd {
+	@include tablet {
+		position: absolute;
+		right: -300px;
+		top: 66px;
+		height: calc(100vh - 66px);
+		width: 300px;
+		max-width: 300px;
+		background: none;
+
+		.main_user.is-active & {
+			max-width: 300px;
+			top: 66px;
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+	@include wide {
 		overflow: visible;
 		top: 0;
 		opacity: 1;
 		right: 0;
+		height: auto;
+		width: 100%;
+		max-width: 100%;
 		visibility: visible;
 		position: relative;
-		height: auto;
 		padding: 0;
 		transition: none;
 	}
@@ -989,7 +1090,7 @@ h3 {
 	width: 100%;
 	float: left;
 
-	@include hd {
+	@include wide {
 		padding: 12px 0;
 		column-count: 2;
 		column-gap: 10px;
@@ -1004,7 +1105,7 @@ h3 {
 	line-height: 20px;
 	color: #000000;
 
-	@include hd {
+	@include wide {
 		display: inline-block;
 		vertical-align: top;
 		float: none;
@@ -1019,9 +1120,11 @@ h3 {
 	padding: 20px 0;
 	border-top: 1px solid #e2e2e2;
 	border-bottom: 1px solid #e2e2e2;
+	margin: 20px 0;
 
-	@include hd {
+	@include wide {
 		border-bottom: none;
+		margin: 0;
 	}
 }
 .main_user__other__item {
@@ -1047,35 +1150,45 @@ h3 {
 	text-align: center;
 }
 .main_user__btn-logout {
-	transition: $transitionObject;
 	opacity: 0;
-	visibility: visible;
-	position: absolute;
+	display: block;
+	float: left;
 	color: #000000;
+	margin-top: 10px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	transition: $TransitionObject;
 	
 	span {
-		display: none;
 		margin-right: 10px;
-
-		.main_user.is-active & {
-			display: inline-block;
-		}
 	}
 	svg {
 		width: 15px;
 		height: 15px;
 		color: #cbcdcf;
+		transition: $TransitionLink;
 	}
 	.main_user.is-active & {
 		opacity: 1;
-		left: 20px;
-		bottom: 30px;
-		visibility: visible;
 	}
 	&:active,
 	.no-touchevents &:hover {
 		svg {
-			color: $colorRed;
+			color: $ColorRed;
+		}
+	}
+
+	@include wide {
+		position: absolute;
+		right: 10px;
+		top: 36px;
+		opacity: 1;
+		margin: 0;
+		z-index: 600;
+
+		span {
+			display: none;
 		}
 	}
 }
@@ -1107,13 +1220,22 @@ h3 {
 	float: left;
 	padding: 15px 10px 0 10px;
 
-	@include hd {
-		padding: 20px 30px;
+	@include tablet {
+		h2 {
+			padding-bottom: 15px;
+			border-bottom: 1px solid #e2e2e2;
+		}
+	}
+	@include desktop {
+		padding: 20px 20px;
 
 		h2 {
 			padding-bottom: 15px;
 			border-bottom: 1px solid #e2e2e2;
 		}
+	}
+	@include wide {
+		padding: 20px 30px;
 	}
 }
 .news__list {
@@ -1133,7 +1255,7 @@ h3 {
 	color: #000000;
 }
 .news__item__image {
-	@include hd {
+	@include tablet {
 		float: left;
 		width: 240px;
 	}
@@ -1148,9 +1270,9 @@ h3 {
 	line-height: 20px;
 	padding-top: 10px;
 	margin-bottom: 10px;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 
-	@include hd {
+	@include tablet {
 		width: auto;
 		float: none;
 		margin-left: 265px;
@@ -1162,7 +1284,7 @@ h3 {
 	line-height: 21px;
 	color: #000000;
 
-	@include hd {
+	@include tablet {
 		width: auto;
 		float: none;
 		margin-left: 265px;
@@ -1177,7 +1299,7 @@ h3 {
 	padding: 0;
 	text-align: center;
 
-	@include hd {
+	@include tablet {
 		text-align: right;
 	}
 }
@@ -1190,10 +1312,10 @@ h3 {
 	line-height: 40px;
 	text-align: center;
 	color: #000000;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 
 	&.is-current {
-		color: $colorRed;
+		color: $ColorRed;
 	}
 }
 
@@ -1203,8 +1325,14 @@ h3 {
 .sidebar-left {
 	order: 1;
 
-	@include hd {
+	@include desktop {
 		order: 0;
+		width: 300px;
+	}
+	@include wide {
+		width: 260px;
+	}
+	@include hd {
 		width: 300px;
 	}
 }
@@ -1215,19 +1343,23 @@ h3 {
 	padding: 30px 10px;
 	border-top: 1px solid #e2e2e2;
 
-	@include hd {
-		padding: 15px 30px;
-		margin-bottom: 15px;
+	@include tablet {
 		border-top: none;
-
+		padding: 15px 10px;
+		margin-bottom: 15px;
+		
 		h3 {
 			border-bottom: 1px solid #e2e2e2;
 			padding-bottom: 10px;
 		}
-
+	}
+	@include desktop {
 		&.sidebar__people-birth {
 			border-bottom: 1px solid #e2e2e2;
 		}
+	}
+	@include hd {
+		padding: 15px 30px;
 	}
 }
 .sidebar__people__list {
@@ -1241,6 +1373,16 @@ h3 {
 
 	&:first-child {
 		margin-top: 0;
+	}
+
+	@include tabletMax {
+		width: 50%;
+		margin-top: 20px;
+
+		&:nth-child(2),
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 .sidebar__people__user__photo {
@@ -1264,12 +1406,12 @@ h3 {
 	font-size: 14px;
 	line-height: 22px;
 	color: #000000;
-	font-family: $europedemi;
-	transition: $transitionLink;
+	font-family: $Europedemi;
+	transition: $TransitionLink;
 
 	.sidebar__people__user:active &,
 	.no-touchevents .sidebar__people__user:hover & {
-		color: $colorRed;
+		color: $ColorRed;
 	}
 }
 .sidebar__people__user__post {
@@ -1285,7 +1427,7 @@ h3 {
 	background: #fbfbfb;
 	border-top: 1px solid #e2e2e2;
 
-	@include hd {
+	@include tablet {
 		.container {
 			justify-content: space-between;
 			display: flex;
@@ -1301,13 +1443,13 @@ h3 {
 	float: left;
 	text-align: center;
 
-	@include hd {
+	@include tablet {
 		width: auto;
 		float: none;
 	}
 }
 .footer__developer a {
 	color: #000000;
-	font-family: $europedemi;
+	font-family: $Europedemi;
 }
 // END HEADER

@@ -14,7 +14,7 @@ html, body {
 body {
 	height: 100%;
 	position: relative;
-	font-family: $europe;
+	font-family: $Europe;
 	font-size: 14px;
 	line-height: 20px;
 	font-weight: 400;
@@ -27,7 +27,7 @@ body {
 		overflow: hidden;
 	}
 
-	@include hd {
+	@include tablet {
 		padding: 0;
 	}
 }
@@ -43,15 +43,24 @@ body {
 	padding: 0;
 	margin: auto;
 	
+	@include tablet {
+		width: 760px;
+	}
+	@include desktop {
+		width: 980px;
+	}
+	@include wide {
+		width: 1170px;
+	}
 	@include hd {
 		width: 1500px;
 	}
 }
 
 a {
-	color: $colorLink;
+	color: $ColorLink;
 	text-decoration: none;
-	transition: $transitionLink;
+	transition: $TransitionLink;
 	
 	&:hover,
 	&:focus {
@@ -60,7 +69,7 @@ a {
 	}
 	&:active,
 	.no-touchevents &:hover {
-		color: $colorLinkHover;
+		color: $ColorLinkHover;
 		text-decoration: none;
 	}
 	&:focus {
@@ -73,77 +82,28 @@ a {
 	}
 }
 
-.contain,
-.cover {
-	position: relative;
-	
-	&:after {
-		position: absolute;
-		content: '';
-		// font-family: $fontawesome;
-		background: url('../img/loader.svg') center no-repeat;
-		background-size: contain;
-		font-size: 20px;
-		line-height: 20px;
-		display: block;
-		left: 50%;
-		top: 50%;
-		margin: -10px 0 0 -10px;
-		width: 20px;
-		height: 20px;
-		opacity: 0.7;
-		text-align: center;
-		// color: #171717;
-		animation: rotate 1.5s linear infinite;
-		transform-origin: 50%;
-	}
-	&.is-loaded:after {
-		display: none;
-	}
 
-	&>img,
-	&>img {
-		display: none;
-	}
+h2 {
+	font-size: 22px;
+	line-height: 26px;
+	margin: 0 0 15px 0;
+	color: #000000;
+	font-weight: 400;
+	font-family: $Europedemi;
 }
-
-.is-loading {
-	&:after {
-		position: absolute;
-		content: '';
-		// font-family: $fontawesome;
-		background: url('../img/loader.svg') center no-repeat;
-		background-size: contain;
-		font-size: 20px;
-		line-height: 20px;
-		display: block;
-		left: 50%;
-		top: 50%;
-		margin: -10px 0 0 -10px;
-		width: 20px;
-		height: 20px;
-		opacity: 0.7;
-		text-align: center;
-		// color: #171717;
-		animation: rotate 1.5s linear infinite;
-		transform-origin: 50%;
-	}
+h3 {
+	font-size: 16px;
+	line-height: 22px;
+	margin: 0 0 15px 0;
+	color: #000000;
+	font-weight: 400;
+	font-family: $Europedemi;
 }
-
-@keyframes rotate {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
 
 .btn {
 	box-shadow: none;
 	border-radius: 0;
-	transition: $transitionLink;
+	transition: $TransitionLink;
 	text-decoration: none;
 	text-align: center;
 	align-items: center;
@@ -171,7 +131,7 @@ a {
 
 		&:after {
 			content: '\f110';
-			font-family: $fontawesome;
+			font-family: $Fontawesome;
 			display: block;
 			position: absolute;
 			text-align: center;
@@ -213,17 +173,17 @@ a {
 .btn-line-green {
 	@extend .btn;
 	
-	border-color: $color-green;
-	color: $color-green;
+	border-color: $ColorGreen;
+	color: $ColorGreen;
 
 	&:focus {
-		border-color: $color-green;
-		color: $color-green;
+		border-color: $ColorGreen;
+		color: $ColorGreen;
 	}
 	&:active,
 	.no-touchevents &:hover {
-		background: $color-green;
-		border-color: $color-green;
+		background: $ColorGreen;
+		border-color: $ColorGreen;
 		color: #000000;
 	}
 
@@ -231,8 +191,8 @@ a {
 	.no-touchevents &[disabled="disabled"]:hover,
 	&[disabled="disabled"] {
 		background: none;
-		border-color: $color-green;
-		color: $color-green;
+		border-color: $ColorGreen;
+		color: $ColorGreen;
 	}
 }
 .btn-line-black {
@@ -266,7 +226,7 @@ a {
 	background: #bebec0;
 	border: none;
 	border-radius: 3px;
-	transition: $transitionLink;
+	transition: $TransitionLink;
 
 	&.hover,
 	&:active,
@@ -292,8 +252,8 @@ a {
 		position: absolute;
 		color: #ffffff;
 		text-align: center;
-		font-family: $fontawesome;
-		transition: $transitionLink;
+		font-family: $Fontawesome;
+		transition: $TransitionLink;
 		transform: scale(.2);
 		opacity: 0;
 	}
@@ -317,7 +277,7 @@ a {
 		margin: 0;
 		padding: 0;
 		margin-left: 30px;
-		transition: $transitionLink;
+		transition: $TransitionLink;
 	}
 	&.disabled+label {
 		color: rgba(136, 136, 136, 0.6) !important;
@@ -335,13 +295,13 @@ a {
 	height: 20px;
 	float: left;
 	display: block;
-	transition: $transitionLink;
+	transition: $TransitionLink;
 
 	&.checked,
 	.no-touchevents &.checked.hover,
 	&.checked:active,
 	.no-touchevents &.checked:hover {
-		border-color: $color-green;
+		border-color: $ColorGreen;
 	}
 
 	&+label {
@@ -349,7 +309,7 @@ a {
 		float: none !important;
 		margin: 0 0 0 30px !important;
 		padding: 0 !important;
-		transition: $transitionLink;
+		transition: $TransitionLink;
 	}
 	&.disabled+label {
 		color: rgba(136, 136, 136, 0.6) !important;
@@ -365,11 +325,11 @@ a {
 		left: 50%;
 		top: 50%;
 		position: absolute;
-		background: $color-green;
+		background: $ColorGreen;
 		opacity: 0;
 		border-radius: 100%;
 		z-index: 10;
-		transition: $transitionLink;
+		transition: $TransitionLink;
 	}
 	&.checked:after {
 		content: '';
@@ -388,7 +348,7 @@ a {
 	border: 3px solid #000000;
 	background: #ffffff;
 	min-width: 200px;
-	transition: $transitionLink;
+	transition: $TransitionLink;
 
 	&:active,
 	.no-touchevents &:hover {
@@ -409,13 +369,13 @@ a {
 	&.is-invalid:active,
 	.no-touchevents &.is-invalid:hover,
 	&.is-invalid {
-		border-color: $color-red !important;
+		border-color: $ColorRed !important;
 	}
 	&.is-valid:focus,
 	&.is-valid:active,
 	.no-touchevents &.is-valid:hover,
 	&.is-valid {
-		border-color: $color-green !important;
+		border-color: $ColorGreen !important;
 	}
 
 	&::-webkit-input-placeholder {
@@ -443,7 +403,7 @@ a {
 	width: auto;
 	min-width: 228px;
 	min-height: 100px;
-	transition: $transitionLink;
+	transition: $TransitionLink;
 
 	&:active,
 	.no-touchevents &:hover {
@@ -462,13 +422,13 @@ a {
 	&.is-invalid:active,
 	.no-touchevents &.is-invalid:hover,
 	&.is-invalid {
-		border-color: $color-red !important;
+		border-color: $ColorRed !important;
 	}
 	&.is-valid:focus,
 	&.is-valid:active,
 	.no-touchevents &.is-valid:hover,
 	&.is-valid {
-		border-color: $color-green !important;
+		border-color: $ColorGreen !important;
 	}
 
 	&::-webkit-input-placeholder {
@@ -495,6 +455,91 @@ button {
 /**************************************************************************
 Misc styles
 /**************************************************************************/
+.bundle {
+	display: inline-block;
+	border-radius: 100%;
+	min-width: 18px;
+	height: 18px;
+	text-align: center;
+	line-height: 18px;
+	color: #ffffff;
+	background: $ColorRed;
+	font-family: $Europedemi;
+	font-size: 10px;
+	margin-left: 8px;
+
+	&.bundle-red {
+		background: $ColorRed;
+	}
+}
+
+.contain,
+.cover {
+	position: relative;
+	
+	&:after {
+		position: absolute;
+		content: '';
+		// font-family: $Fontawesome;
+		background: url('../img/loader.svg') center no-repeat;
+		background-size: contain;
+		font-size: 20px;
+		line-height: 20px;
+		display: block;
+		left: 50%;
+		top: 50%;
+		margin: -10px 0 0 -10px;
+		width: 20px;
+		height: 20px;
+		opacity: 0.7;
+		text-align: center;
+		// color: #171717;
+		animation: rotate 1.5s linear infinite;
+		transform-origin: 50%;
+	}
+	&.is-loaded:after {
+		display: none;
+	}
+
+	&>img,
+	&>img {
+		display: none;
+	}
+}
+
+.is-loading {
+	&:after {
+		position: absolute;
+		content: '';
+		// font-family: $Fontawesome;
+		background: url('../img/loader.svg') center no-repeat;
+		background-size: contain;
+		font-size: 20px;
+		line-height: 20px;
+		display: block;
+		left: 50%;
+		top: 50%;
+		margin: -10px 0 0 -10px;
+		width: 20px;
+		height: 20px;
+		opacity: 0.7;
+		text-align: center;
+		// color: #171717;
+		animation: rotate 1.5s linear infinite;
+		transform-origin: 50%;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+
 .swiper-pagination {
 	text-align: right;
 	padding: 0 10px;
@@ -509,13 +554,11 @@ Misc styles
 	opacity: 0.5;
 	margin: 0;
 	display: inline-block;
-	transition: $transitionLink;
+	transition: $TransitionLink;
 }
 .swiper-pagination-bullet-active {
 	opacity: 1;
 }
-
-
 
 
 .mCustomScrollbar {
@@ -529,7 +572,7 @@ Misc styles
 .mCSB_dragger_bar {
 	width: 6px;
 	border-radius: 3px;
-	background: $color-green !important;
+	background: $ColorGreen !important;
 	padding: 0;
 }
 .mCSB_draggerRail {
