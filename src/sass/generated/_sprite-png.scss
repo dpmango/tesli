@@ -1,29 +1,56 @@
 $sprite: (
   icon-1c: (
-    offset-x: 0px,
+    offset-x: -44px,
     offset-y: 0px,
     width: 46px,
     height: 26px,
-    total-width: 76px,
-    total-height: 50px,
+    total-width: 90px,
+    total-height: 87px,
+    image: '../img/sprite.png'
+  ),
+  icon-achievement: (
+    offset-x: 0px,
+    offset-y: 0px,
+    width: 44px,
+    height: 42px,
+    total-width: 90px,
+    total-height: 87px,
+    image: '../img/sprite.png'
+  ),
+  icon-calendar-grey: (
+    offset-x: -30px,
+    offset-y: -42px,
+    width: 21px,
+    height: 21px,
+    total-width: 90px,
+    total-height: 87px,
+    image: '../img/sprite.png'
+  ),
+  icon-calendar-red: (
+    offset-x: -51px,
+    offset-y: -42px,
+    width: 21px,
+    height: 21px,
+    total-width: 90px,
+    total-height: 87px,
     image: '../img/sprite.png'
   ),
   icon-gismeteo: (
-    offset-x: -46px,
-    offset-y: 0px,
+    offset-x: 0px,
+    offset-y: -42px,
     width: 30px,
     height: 21px,
-    total-width: 76px,
-    total-height: 50px,
+    total-width: 90px,
+    total-height: 87px,
     image: '../img/sprite.png'
   ),
   icon-support: (
     offset-x: 0px,
-    offset-y: -26px,
+    offset-y: -63px,
     width: 26px,
     height: 24px,
-    total-width: 76px,
-    total-height: 50px,
+    total-width: 90px,
+    total-height: 87px,
     image: '../img/sprite.png'
   ),
 );
@@ -51,8 +78,6 @@ $sprite: (
 
 @mixin sprite-image-retina($image) {
   $image-path: map-get(map-get($sprite, $image), 'image');
-  $image-path-retina: str-slice($image-path, 1, str-index($image-path, '.png') - 1) + '@2x.png';
-
   background-image: url($image-path-retina);
 }
 
@@ -68,19 +93,6 @@ $sprite: (
       @include sprite-width($image);
       @include sprite-height($image);
     }
-
-    @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (   min--moz-device-pixel-ratio: 2),
-      only screen and (     -o-min-device-pixel-ratio: 2/1),
-      only screen and (        min-device-pixel-ratio: 2),
-      only screen and (                min-resolution: 192dpi),
-      only screen and (                min-resolution: 2dppx) {
-
-      @include sprite-size($image);
-      @include sprite-image-retina($image);
-
-    }
   }
 }
 
@@ -88,6 +100,15 @@ $sprite: (
 
 .icon-1c {
   @include sprite(icon-1c)
+}
+.icon-achievement {
+  @include sprite(icon-achievement)
+}
+.icon-calendar-grey {
+  @include sprite(icon-calendar-grey)
+}
+.icon-calendar-red {
+  @include sprite(icon-calendar-red)
 }
 .icon-gismeteo {
   @include sprite(icon-gismeteo)

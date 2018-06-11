@@ -1,0 +1,275 @@
+@@include('_componenets/page-header.html')
+
+
+<body role="page">
+<div id="wrapper">
+	<div class="container">
+		<div class="body_wrapper">
+			@@include('_componenets/header.html')
+
+
+			<div class="body">
+				<div class="body__main">
+					<main class="content" role="main">
+						<small>Заголовки</small>
+
+						<h1>Задачи и проекты</h1>
+
+						<h2>Самое интересное</h2>
+
+						<h3>Новые сотрудники</h3>
+
+						<hr />
+
+						<small>Обычный текст</small>
+
+						<p>Дорогие клиенты и партнеры, мы рады поделиться с вами хорошими новостями: компания Tesli получила официальное решение о государственной регистрации товарного знака Leyden! Приглашаем дизайнеров интерьера, архитекторов и декораторов погрузиться в креативную атмосферу наших салонов в Москве, Санкт-Петербурге, Казани, Нижнем Новгороде и Новосибирске.</p>
+
+						<p>В просторных и светлых шоу-румах Leyden вы сможете вживую оценить широчайший ассортимент оригинальных моделей люстр, выключателей, светильников, получить развернутые консультации от сертифицированных специалистов и найти для своих проектов концептуальные и по-настоящему эксклюзивные решения.</p>
+
+						<hr />
+
+						<small>Фото + текст</small>
+						<br>
+
+						<img src="img/ps_img/news-1.jpg" width="230" class="float-left">
+
+						<p>Дорогие клиенты и партнеры, мы рады поделиться с вами хорошими новостями: компания Tesli получила официальное решение о государственной регистрации товарного знака Leyden! Приглашаем дизайнеров интерьера, архитекторов и декораторов погрузиться в креативную атмосферу наших салонов в Москве, Санкт-Петербурге, Казани, Нижнем Новгороде и Новосибирске.</p>
+
+						<p>В просторных и светлых шоу-румах Leyden вы сможете вживую оценить широчайший ассортимент оригинальных моделей люстр, выключателей, светильников, получить развернутые консультации от сертифицированных специалистов и найти для своих проектов концептуальные и по-настоящему эксклюзивные решения.</p>
+
+						<hr />
+
+						<small>Текст + цитата</small>
+						<br>
+
+						<p>Дорогие клиенты и партнеры, мы рады поделиться с вами хорошими новостями: компания Tesli получила официальное решение о государственной регистрации товарного знака Leyden! Приглашаем дизайнеров интерьера, архитекторов и декораторов погрузиться в креативную атмосферу наших салонов в Москве, Санкт-Петербурге, Казани, Нижнем Новгороде и Новосибирске.</p>
+
+						<blockquote>«В просторных и светлых шоу-румах Leyden вы сможете вживую оценить широчайший ассортимент оригинальных моделей люстр, выключателей, светильников, получить развернутые консультации от сертифицированных специалистов и найти для своих проектов концептуальные и по-настоящему эксклюзивные решения»</blockquote>
+
+						<p>В просторных и светлых шоу-румах Leyden вы сможете вживую оценить широчайший ассортимент оригинальных моделей люстр, выключателей, светильников, получить развернутые консультации от сертифицированных специалистов и найти для своих проектов концептуальные и по-настоящему эксклюзивные решения.</p>
+
+						<hr />
+
+						<small>Списки</small>
+
+						<ul>
+							<li>Розетки и выключатели</li>
+							<li>Автоматы и УЗО</li>
+							<li>Силовая аппаратура</li>
+							<li>Шкафы и щиты</li>
+							<li>Двигатели и ЧРП</li>
+						</ul>
+
+						<ol>
+							<li>Розетки и выключатели</li>
+							<li>Автоматы и УЗО</li>
+							<li>Силовая аппаратура</li>
+							<li>Шкафы и щиты</li>
+							<li>Двигатели и ЧРП</li>
+						</ol>
+
+						<hr>
+
+						<small>Ссылки. Для ссылок по-умолчанию не используется выделение цветом, т.к. акцидентный цвет (красный) достаточной яркий, и его использование для ссылок будет слишком перегружать странцу, поэтому  этот цвет используется только при наведении на сылку</small>
+						<br>
+						<br>
+
+						@@include('_modules/_user-card.html')
+						@@include('_modules/_user-card-2.html')
+						
+						<br clear="all">
+						<br>
+						<a href="#">Иванченко А.В.</a> <a href="#">Иванченко А.В.</a>
+						
+						<hr>
+
+						<br>
+						<small>Фото</small>
+
+						@@include('_modules/_media-card-photo.html')
+						
+						<br>
+						<small>Видео</small>
+
+						@@include('_modules/_media-card-video.html')
+
+						<br>
+						<br>
+						<small>Поля ввода</small>
+
+						<div class="ui-group">
+							<label>Ваше имя</label>
+							<input type="text" name="" placeholder="Ваше имя" value="" required>
+						</div>
+
+						<div class="ui-group">
+							<label>Ваше имя</label>
+							<input type="text" name="" placeholder="Ваше имя" value="Александ" required>
+						</div>
+
+						<div class="ui-group">
+							<label>Ваше имя</label>
+							<input type="text" name="" placeholder="Ваше имя" value="20325!@$" required class="error">
+							<label class="error">Неверный формат данных</label>
+						</div>
+
+						<div class="ui-group">
+							<label>Комментарий</label>
+							<textarea name="" placeholder="Комментарий" value="" required></textarea>
+						</div>
+
+						<br>
+						
+						<div class="datepicker_container">
+							<div class="datepicker_input_container">
+								<input type="text" class="datepicker_input">
+							</div>
+						</div>
+
+						<br clear="all">
+						<br>
+
+						<div class="ui-checkbox">
+							<label><input type="checkbox" value="1"><span>Checkbox 1</span></label>
+							<label><input type="checkbox" value="2"><span>Checkbox 2</span></label>
+						</div>
+
+						<br>
+
+						<div class="ui-checkbox">
+							<label><input type="radio" name="radi-1" value="1"><span>Radio 1</span></label>
+							<label><input type="radio" name="radi-1" value="2"><span>Radio 2</span></label>
+						</div>
+
+						<br clear="all">
+						<br>
+
+						<div class="ui-group">
+							<label>Выберите город</label>
+							<select name="">
+								<option value="1">Москва</option>
+								<option value="2">Мурманск</option>
+								<option value="3">Новосибирск</option>
+								<option value="4">Омск</option>
+								<option value="5">Пермь</option>
+								<option value="6">Саратов</option>
+							</select>
+						</div>
+
+						<small>Поля ввода</small>
+						<br>
+
+						<button type="submit">Отправить заявление</button> <input type="button" name="" value="Отправить заявление">
+
+						<br clear="all">
+						<hr>
+						<small>Таблица</small>
+
+						<table>
+							<tr>
+								<th>Название задачи</th>
+								<th>Результат</th>
+								<th>Срок </th>
+							</tr>
+							<tr>
+								<td>Повышение квалификаций руководителя</td>
+								<td>В процессе</td>
+								<td>22.02.2018</td>
+							</tr>
+							<tr>
+								<td>Прохождения практикума по закупкам по 44-ФЗ и 223-ФЗ</td>
+								<td>Завершен</td>
+								<td>23.02.2018</td>
+							</tr>
+						</table>
+					</main>
+				</div>
+			</div>
+		</div>
+
+
+		<aside class="sidebar sidebar-right">
+			<div class="main_user">
+				<div class="main_user__head">
+					<div class="main_user__head__photo">
+						<div class="main_user__head__photo__img cover"><img src="img/ps_img/user-1.jpg"></div>
+					</div>
+			
+					<div class="main_user__head__info">
+						<div class="main_user__head__name">Дмитрий Овчинников</div>
+						<div class="main_user__head__post">Старший менеджер</div>
+					</div>
+
+					<div class="main_user__hamburger">
+						<div class="hamburger hamburger--squeeze js-hamburger is-active">
+							<div class="hamburger-box">
+								<div class="hamburger-inner"></div>
+							</div>
+						</div>
+				    </div>
+				</div>
+
+				<div class="main_user__inner">
+					<div class="main_user__menu">
+						<a href="#" class="main_user__menu__link"><span>Живая лента</span></a>
+						<a href="#" class="main_user__menu__link"><span>Задачи</span><span class="bundle bundle-red">2</span></a>
+						<a href="#" class="main_user__menu__link"><span>Группы</span></a>
+						<a href="#" class="main_user__menu__link"><span>Сообщения</span></a>
+						<a href="#" class="main_user__menu__link"><span>Моя страница</span></a>
+						<a href="#" class="main_user__menu__link"><span>Заявки</span></a>
+						<a href="#" class="main_user__menu__link"><span>Мой профайл</span></a>
+					</div>
+
+					<div class="main_user__other">
+						<div class="main_user__other__item">
+							<a href="#" class="main_user__other__link">
+								<div class="main_user__other__link__image"><i class="icon icon-1c"></i></div>
+								<span>Портал</span>
+							</a>
+						</div>
+						<div class="main_user__other__item">
+							<a href="#" class="main_user__other__link">
+								<div class="main_user__other__link__image"><i class="icon icon-support"></i></div>
+								<span>Техподдержка</span>
+							</a>
+						</div>
+						<div class="main_user__other__item">
+							<a href="#" class="main_user__other__link">
+								<div class="main_user__other__link__image"><i class="icon icon-gismeteo"></i></div>
+								<span>Gismeteo</span>
+							</a>
+						</div>
+					</div>
+
+					<a href="#" class="main_user__btn-logout"><span>Выйти</span>@@include('_modules/_svg-ico.html', {"href": "ico-logout"})</a>
+				</div>
+			</div>
+
+			<div class="sidebar__banner_slideshow">
+				<div class="swiper-container js-slider">
+				    <div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="#"><img src="img/ps_img/sidebar_banner-1.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="img/ps_img/sidebar_banner-1.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="img/ps_img/sidebar_banner-1.jpg"></a>
+						</div>
+					</div>
+
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</aside>
+	</div>
+</div>
+
+
+@@include('_componenets/footer.html')
+</body>
+
+
+@@include('_componenets/page-footer.html')

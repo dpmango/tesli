@@ -27,8 +27,8 @@ $(document).ready(function(){
     // initPopups();
     initSliders();
     // initScrollMonitor();
-    // initMasks();
-    // initSelectric();
+    initMasks();
+    initSelectric();
     // initValidations();
 
     // development helper
@@ -282,6 +282,11 @@ $(document).ready(function(){
 
     SwiperOptions.effect = 'fade';
     new Swiper('.js-slider-fade', SwiperOptions);
+
+    SwiperOptions.effect = 'swipe';
+    SwiperOptions.slidesPerView = 3;
+    SwiperOptions.loop = true;
+    new Swiper('.user__achievements .swiper-container', SwiperOptions);
   }
 
   //////////
@@ -363,7 +368,6 @@ $(document).ready(function(){
     $('select').selectric({
       maxHeight: 300,
       arrowButtonMarkup: '<b class="button"><svg class="ico ico-select-down"><use xlink:href="img/sprite.svg#ico-select-down"></use></svg></b>',
-
       onInit: function(element, data){
         var $elm = $(element),
             $wrapper = $elm.closest('.' + data.classes.wrapper);
@@ -498,8 +502,8 @@ $(document).ready(function(){
         password: {
           required: true,
           minlength: 6,
-        }
-        // phone: validatePhone
+        },
+        phone: validatePhone
       },
       messages: {
         last_name: "Заполните это поле",
@@ -512,10 +516,10 @@ $(document).ready(function(){
             required: "Заполните это поле",
             email: "Пароль мимимум 6 символов"
         },
-        // phone: {
-        //     required: "Заполните это поле",
-        //     minlength: "Введите корректный телефон"
-        // }
+        phone: {
+            required: "Заполните это поле",
+            minlength: "Введите корректный телефон"
+        }
       }
     });
   }
@@ -643,10 +647,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
 	/**************************************************************************
 	Background images width lazy load
 	/**************************************************************************/
@@ -676,6 +676,18 @@ $(document).ready(function(){
 	}
 	/**************************************************************************
 	END Background images width lazy load
+	/**************************************************************************/
+
+
+	/**************************************************************************
+	Datepicker
+	/**************************************************************************/
+	$('.datepicker_input').datepicker({
+		position: 'top left',
+		inline: false
+	});
+	/**************************************************************************
+	END Datepicker
 	/**************************************************************************/
 
 });

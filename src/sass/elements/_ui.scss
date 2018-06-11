@@ -1,0 +1,222 @@
+// UI
+
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="number"], 
+input[type="search"], 
+textarea {
+	display: block;
+	width: 100%;
+	-webkit-appearance: none;
+	background: #ffffff;
+	color: #000000;
+	border: 1px solid $BorderColor;
+	border-radius: 4px;
+	padding: 10px 15px;
+	font-size: 13px;
+	transition: $TransitionLink;
+	font-family: $Europe;
+	line-height: 18px;
+	
+	&:focus {
+		outline: none;
+		border-color: #666666;
+	}
+	&.error:focus,
+	&.error {
+		border-color: $ColorRed;
+	}
+
+	&::-webkit-input-placeholder {
+		color: #b3b3b3;
+	}
+	&::-moz-placeholder {
+		color: #b3b3b3;
+	}
+	&:-ms-input-placeholder {
+		color: #b3b3b3;
+	}
+	&:-moz-placeholder {
+		color: #b3b3b3;
+	}
+
+	& + label.error,
+	& + div.error,
+	& + strong.error,
+	& + span.error {
+		margin-top: 5px;
+	}
+}
+textarea {
+	resize: vertical;
+	min-height: 146px;
+}
+input[type="button"],
+button {
+	background: $ColorRed;
+	border: none;
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 18px;
+	min-height: 62px;
+	min-width: 100px;
+	cursor: pointer;
+	padding: 10px 40px;
+	transition: $TransitionLink;
+
+	&:focus {
+		outline: none;
+	}
+	&:active,
+	.no-touchevents &:hover {
+		background: lighten($ColorRed, 5%);
+	}
+}
+
+.ui-group {
+	position: relative;
+	margin-bottom: 20px;
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+		font-size: 14px;
+		color: #000000;
+	}
+	label.error,
+	div.error,
+	strong.error,
+	span.error {
+		color: $ColorRed;
+		font-size: 13px;
+		line-height: 18px;
+	}
+}
+
+
+// Checkbox
+.ui-checkbox {
+	label {
+		display: inline-block;
+		margin-right: 10px;
+		position: relative;
+
+		input {
+			display: none;
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			&:checked {
+				+ span {
+					&::before {
+						border-color: $ColorRed;
+					}
+					&::after {
+						opacity: 1;
+					}
+	    		}
+			}
+			&[type="radio"] + span {
+				&:before {
+					border-radius: 100%;
+				}
+				&:after {
+					border-radius: 100%;
+				}
+			}
+		}
+		span {
+		    display: inline-block;
+		    position: relative;
+		    cursor: pointer;
+
+			&:before {
+				content: '';
+				position: relative;
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				background-color: #ffffff;
+				border: 1px solid $BorderColor;
+				border-radius: 3px;
+				cursor: pointer;
+				vertical-align: middle;
+				transition: $TransitionLink;
+				margin-right: 5px;
+			}
+			&:after {
+				position: absolute;
+				left: 5px;
+				top: 50%;
+				margin-top: -5px;
+				display: inline-block;
+				content: ' ';
+				width: 10px;
+				height: 10px;
+				background: $ColorRed;
+				border-radius: 3px;
+				opacity: 0;
+				// background-image: svg-load('../../images/svg/checkbox.svg');
+				// background-repeat: no-repeat;
+				// background-position: center;
+				transition: $TransitionLink;
+			}
+			
+		}
+		// span {
+		// 		display: inline-block;
+		// 		padding-left: 35px;
+		// 		vertical-align: top;
+		// 		line-height: 1.3;
+		// 		font-size: 14px;
+		// 		cursor: pointer;
+		// 	}
+	}
+}
+
+
+.datepicker_container {
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		display: block;
+		right: 10px;
+		top: 50%;
+		margin-top: -10px;
+		z-index: 100;
+		@extend .icon-calendar-grey:before;
+	}
+}
+
+
+table {
+	width: 100%;
+	float: left;
+	max-width: 100%;
+
+	th {
+		background: #f8f8f8;
+		color: #818181;
+		font-size: 12px;
+		line-height: 16px;
+		padding: 6px 10px;
+		text-align: left;
+		font-weight: 400;
+	}
+	td {
+		background: #ffffff;
+		font-size: 14px;
+		line-height: 24px;
+		padding: 15px 10px;
+		border-bottom: 1px solid #e2e2e2;
+	}
+}

@@ -1,7 +1,3 @@
-/*======================================
- *  Selectric v1.13.0
- *======================================
-
 .selectric-wrapper
   position: relative
   cursor: pointer
@@ -10,9 +6,11 @@
   width: 100%
 
 .selectric
-  border: 1px solid #DDD
-  border-radius: 0px
-  background: #F8F8F8
+  background: #ffffff
+  color: #000000
+  border: 1px solid $BorderColor
+  border-radius: 4px
+  font-size: 13px
   position: relative
   overflow: hidden
   .label
@@ -23,7 +21,7 @@
     margin: 0 38px 0 10px
     font-size: 12px
     line-height: 38px
-    color: #444
+    color: #000000
     height: 38px
     -webkit-user-select: none
     -moz-user-select: none
@@ -37,39 +35,22 @@
     width: 38px
     height: 38px
     line-height: 38px
-    background-color: #F8f8f8
-    color: #BBB
+    background-color: #ffffff
+    color: $ColorRed
     text-align: center
-    font: 0/0 a
-    *font: 20px/38px Lucida Sans Unicode, Arial Unicode MS, Arial
-    &:after
-      content: " "
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      margin: auto
-      width: 0
-      height: 0
-      border: 4px solid transparent
-      border-top-color: #BBB
-      border-bottom: none
 
 .selectric-focus .selectric
-  border-color: #aaaaaa
+  border-color: #666666
 
 .selectric-hover .selectric
-  border-color: #c4c4c4
+  border-color: $BorderColor
   .button
-    color: #a2a2a2
-    &:after
-      border-top-color: #a2a2a2
+    color: $ColorRed
 
 .selectric-open
   z-index: 9999
   .selectric
-    border-color: #c4c4c4
+    border-color: $BorderColor
   .selectric-items
     display: block
 
@@ -124,15 +105,14 @@
   visibility: hidden !important
   display: block !important
 
-/* Items box
 
 .selectric-items
   display: none
   position: absolute
   top: 100%
   left: 0
-  background: #F8F8F8
-  border: 1px solid #c4c4c4
+  background: #ffffff
+  border: 1px solid $BorderColor
   z-index: -1
   box-shadow: 0 0 10px -6px
   .selectric-scroll
@@ -160,17 +140,17 @@
     min-height: 20px
     display: block
     padding: 10px
-    color: #666
+    color: #000000
     cursor: pointer
     &.selected
-      background: #E0E0E0
-      color: #444
+      background: $ColorRed
+      color: #ffffff
     &.highlighted
-      background: #D0D0D0
-      color: #444
+      background: $ColorRed
+      color: #ffffff
     &:hover
-      background: #D5D5D5
-      color: #444
+      background: $ColorRed
+      color: #ffffff
   .disabled
     filter: alpha(opacity = 50)
     opacity: 0.5
