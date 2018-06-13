@@ -1,0 +1,49 @@
+// People block in sidebar
+.sidebar__people {
+	width: 100%;
+	float: left;
+	padding: 30px 10px;
+	border-top: 1px solid #e2e2e2;
+
+	@include tablet {
+		border-top: none;
+		padding: 15px 10px;
+		margin-top: 15px;
+		
+		h3 {
+			border-bottom: 1px solid #e2e2e2;
+			padding-bottom: 10px;
+		}
+	}
+	@include desktop {
+		&.sidebar__people-birth {
+			border-bottom: 1px solid #e2e2e2;
+		}
+	}
+	@include hd {
+		padding: 15px 30px;
+	}
+}
+.sidebar__people__list {
+	width: 100%;
+	float: left;
+}
+.sidebar__people__user {
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	@include tabletMax {
+		width: 50%;
+		margin-top: 20px;
+
+		&:nth-child(2),
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}

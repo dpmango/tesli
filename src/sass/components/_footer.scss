@@ -1,3 +1,36 @@
 // FOOTER
+.footer {
+	width: 100%;
+	float: left;
+	flex-shrink: 0;
+	margin: auto auto 0 auto;
+	padding: 12px 0;
+	background: #fbfbfb;
+	border-top: 1px solid #e2e2e2;
 
-// END FOOTER
+	@include tablet {
+		.container {
+			padding: 0 15px;
+			justify-content: space-between;
+			display: flex;
+			align-items: center;
+		}
+	}
+}
+.footer__developer,
+.footer__copyright {
+	font-size: 12px;
+	line-height: 22px;
+	width: 100%;
+	float: left;
+	text-align: center;
+
+	@include tablet {
+		width: auto;
+		float: none;
+	}
+}
+.footer__developer a {
+	color: #000000;
+	font-family: $Europedemi;
+}

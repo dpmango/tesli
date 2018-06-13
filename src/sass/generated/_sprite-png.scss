@@ -1,118 +1,158 @@
 $sprite: (
-  icon-1c: (
-    offset-x: -44px,
-    offset-y: 0px,
-    width: 46px,
-    height: 26px,
-    total-width: 90px,
-    total-height: 87px,
-    image: '../img/sprite.png'
-  ),
-  icon-achievement: (
-    offset-x: 0px,
-    offset-y: 0px,
-    width: 44px,
-    height: 42px,
-    total-width: 90px,
-    total-height: 87px,
-    image: '../img/sprite.png'
-  ),
-  icon-calendar-grey: (
-    offset-x: -30px,
-    offset-y: -42px,
-    width: 21px,
-    height: 21px,
-    total-width: 90px,
-    total-height: 87px,
-    image: '../img/sprite.png'
-  ),
-  icon-calendar-red: (
-    offset-x: -51px,
-    offset-y: -42px,
-    width: 21px,
-    height: 21px,
-    total-width: 90px,
-    total-height: 87px,
-    image: '../img/sprite.png'
-  ),
-  icon-gismeteo: (
-    offset-x: 0px,
-    offset-y: -42px,
-    width: 30px,
-    height: 21px,
-    total-width: 90px,
-    total-height: 87px,
-    image: '../img/sprite.png'
-  ),
-  icon-support: (
-    offset-x: 0px,
-    offset-y: -63px,
-    width: 26px,
-    height: 24px,
-    total-width: 90px,
-    total-height: 87px,
-    image: '../img/sprite.png'
-  ),
+	icon-1c: (
+		offset-x: -44px,
+		offset-y: -37px,
+		width: 46px,
+		height: 26px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
+	icon-achievement: (
+		offset-x: 0px,
+		offset-y: -37px,
+		width: 44px,
+		height: 42px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
+	icon-calendar-grey: (
+		offset-x: -120px,
+		offset-y: -37px,
+		width: 21px,
+		height: 21px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
+	icon-calendar-red: (
+		offset-x: -141px,
+		offset-y: -37px,
+		width: 21px,
+		height: 21px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
+	icon-gismeteo: (
+		offset-x: -90px,
+		offset-y: -37px,
+		width: 30px,
+		height: 21px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
+	icon-support: (
+		offset-x: 0px,
+		offset-y: -79px,
+		width: 26px,
+		height: 24px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
+	logo-school: (
+		offset-x: -162px,
+		offset-y: -37px,
+		width: 17px,
+		height: 17px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
+	logo: (
+		offset-x: 0px,
+		offset-y: 0px,
+		width: 180px,
+		height: 37px,
+		total-width: 180px,
+		total-height: 103px,
+		image: '../img/sprite.png'
+	),
 );
 
 
 @mixin sprite-size($image) {
-  background-size: map-get(map-get($sprite, $image), 'total-width') map-get(map-get($sprite, $image), 'total-height');
+	background-size: map-get(map-get($sprite, $image), 'total-width') map-get(map-get($sprite, $image), 'total-height');
 }
 
 @mixin sprite-width($image) {
-  width: map-get(map-get($sprite, $image), 'width');
+	width: map-get(map-get($sprite, $image), 'width');
 }
 
 @mixin sprite-height($image) {
-  height: map-get(map-get($sprite, $image), 'height');
+	height: map-get(map-get($sprite, $image), 'height');
 }
 
 @mixin sprite-position($image) {
-  background-position: map-get(map-get($sprite, $image), 'offset-x') map-get(map-get($sprite, $image), 'offset-y');
+	background-position: map-get(map-get($sprite, $image), 'offset-x') map-get(map-get($sprite, $image), 'offset-y');
 }
 
 @mixin sprite-image($image) {
-  background-image: url(map-get(map-get($sprite, $image), 'image'));
+	background-image: url(map-get(map-get($sprite, $image), 'image'));
 }
 
 @mixin sprite-image-retina($image) {
-  $image-path: map-get(map-get($sprite, $image), 'image');
-  background-image: url($image-path-retina);
+	$image-path: map-get(map-get($sprite, $image), 'image');
+	$image-path-retina: str-slice($image-path, 1, str-index($image-path, '.png') - 1) + '@2x.png';
+
+	background-image: url($image-path-retina);
 }
 
 @mixin sprite($image, $size: true) {
-  &:before {
-    content: '';
-    display: inline-block;
-    @include sprite-image($image);
-    @include sprite-position($image);
-    background-repeat: no-repeat;
+	&:before {
+		@include sprite-image($image);
+		@include sprite-position($image);
+		background-repeat: no-repeat;
+		content: '';
+	    display: inline-block;
 
-    @if $size {
-      @include sprite-width($image);
-      @include sprite-height($image);
-    }
-  }
+		@if $size {
+			@include sprite-width($image);
+			@include sprite-height($image);
+		}
+
+		@media
+			only screen and (-webkit-min-device-pixel-ratio: 2),
+			only screen and (   min--moz-device-pixel-ratio: 2),
+			only screen and (     -o-min-device-pixel-ratio: 2/1),
+			only screen and (        min-device-pixel-ratio: 2),
+			only screen and (                min-resolution: 192dpi),
+			only screen and (                min-resolution: 2dppx) {
+
+			@include sprite-size($image);
+			@include sprite-image-retina($image);
+
+		}
+	}
 }
 
 
 
 .icon-1c {
-  @include sprite(icon-1c)
+	@include sprite(icon-1c);
 }
 .icon-achievement {
-  @include sprite(icon-achievement)
+	@include sprite(icon-achievement);
 }
 .icon-calendar-grey {
-  @include sprite(icon-calendar-grey)
+	@include sprite(icon-calendar-grey);
 }
 .icon-calendar-red {
-  @include sprite(icon-calendar-red)
+	@include sprite(icon-calendar-red);
 }
 .icon-gismeteo {
-  @include sprite(icon-gismeteo)
+	@include sprite(icon-gismeteo);
 }
 .icon-support {
-  @include sprite(icon-support)
+	@include sprite(icon-support);
 }
+.logo-school {
+	@include sprite(logo-school);
+}
+.logo {
+	@include sprite(logo);
+}
+

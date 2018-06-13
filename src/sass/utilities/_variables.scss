@@ -29,8 +29,8 @@ $BorderColor: #e8e8e8;
 // OPTIONS
 $TransitionSpeed: .25s;
 $Ease: ease-in-out;
-$TransitionLink: all 0.1s linear;
-$TransitionObject: all 0.3s ease-in-out;
+$TransitionLink: all $TransitionSpeed linear;
+$TransitionObject: all $TransitionSpeed+0.1 ease-in-out;
 
 // SOCIALS
 $twitter: #00aced;

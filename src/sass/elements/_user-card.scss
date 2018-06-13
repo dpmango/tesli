@@ -1,0 +1,39 @@
+// User card
+.user_card {
+	float: left;
+	@include disableAfter;
+}
+.user_card__photo {
+	width: 55px;
+	float: left;
+}
+.user_card__photo__img {
+	border-radius: 100%;
+	width: 55px;
+	height: 55px;
+}
+.user_card__info {
+	margin-left: 70px;
+}
+.user_card__date {
+	font-size: 12px;
+	line-height: 18px;
+	color: #000000;
+}
+.user_card__name {
+	font-size: 14px;
+	line-height: 22px;
+	color: #000000;
+	font-family: $Europedemi;
+	transition: $TransitionLink;
+
+	.user_card:active &,
+	.no-touchevents .user_card:hover & {
+		color: $ColorRed;
+	}
+}
+.user_card__post {
+	font-size: 12px;
+	line-height: 18px;
+	color: #818181;
+}

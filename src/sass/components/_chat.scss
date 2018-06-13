@@ -1,0 +1,50 @@
+// Chat btn
+.chat_btn {
+	display: none;
+
+	@include tablet {
+		display: block;
+		position: fixed;
+		right: 10px;
+		bottom: 100px;
+		width: 86px;
+		height: 66px;
+		background: #ffffff;
+		padding: 15px;
+		border: 1px solid #ececec;
+		border-radius: 5px;
+		cursor: pointer;
+		box-shadow: 0px 8px 14px 0px rgba(0, 0, 0, 0.04);
+		transition: $TransitionLink;
+		z-index: 1010;
+
+		svg {
+			color: #868686;
+			width: 32px;
+			height: 32px;
+			transition: $TransitionLink;
+		}
+
+		span {
+			border-radius: 100%;
+			min-width: 20px;
+			height: 20px;
+			color: #ffffff;
+			background: $ColorRed;
+			text-align: center;
+			line-height: 20px;
+			font-size: 10px;
+			display: block;
+			position: absolute;
+			top: 10px;
+			left: 37px;
+		}
+
+		&:active,
+		.no-touchevents &:hover {
+			svg {
+				color: $ColorRed;
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+// Page 404
+
+.page-404 {
+	.header__top__head {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.header__logo {
+		margin: auto;
+	}
+	.body__main {
+		height: 100%;
+	}
+	.content {
+		height: 100%;
+		max-width: 100%;
+		align-content: center;
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+.page404 {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.page404__title {
+	font-family: $Europedemi;
+	color: $ColorRed;
+	width: 100%;
+	float: left;
+	font-size: 50px;
+	line-height: 10px;
+	text-align: center;
+
+	@include tablet {
+		font-size: 170px;
+		line-height: 120px;
+	}
+}
+.page404__desc {
+	font-size: 14px;
+	text-align: center;
+	width: 100%;
+	float: left;
+	margin-bottom: 5px;
+}
+.page404__link {
+	font-size: 16px;
+	color: $ColorRed;
+	
+	&:hover,
+	&:focus {
+		color: $ColorRed;
+	}
+	.content &:before {
+		background: $ColorRed !important;
+	}
+}

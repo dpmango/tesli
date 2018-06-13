@@ -1,0 +1,30 @@
+// Pagination in content
+.pagination {
+	margin-top: 20px;
+	width: 100%;
+	float: left;
+	border-top: 1px solid #e2e2e2;
+	padding: 0;
+	text-align: center;
+
+	@include tablet {
+		text-align: right;
+	}
+}
+.pagination__item {
+	display: inline-block;
+	font-size: 13px;
+	line-height: 16px;
+	width: 36px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #000000;
+	font-family: $Europedemi;
+
+	&.is-current {
+		color: $ColorRed;
+	}
+
+	@include disableAfter;
+}

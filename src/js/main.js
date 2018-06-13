@@ -50,12 +50,6 @@ $(document).ready(function(){
   pageReady();
 
 
-  // some plugins work best with onload triggers
-  _window.on('load', function() {
-	bgImage('.cover, .contain');
-  })
-
-
   //////////
   // COMMON
   //////////
@@ -113,7 +107,21 @@ $(document).ready(function(){
   }
 
 
-  // HAMBURGER TOGGLER
+  // MENU AND SIDEBAR FUNCTIONS
+  function mainUserClose() {
+  	if ( Modernizr.mq('(max-width: '+DesktopMax+'px)') ) {
+  		if ( $('.main_user').hasClass('is-active') ) {
+  			$('body').removeClass('is-overflow');
+			$('.header__top').removeClass('is-active');
+			$('.main_user').removeClass('is-active');
+  		} else {
+		  	$('body').addClass('is-overflow');
+			$('.header__top').addClass('is-active');
+			$('.main_user').addClass('is-active');
+		}
+	}
+  }
+
   _document
   .on('click', '.header__top__hamburger .js-hamburger', function(e) {
   	e.preventDefault();
@@ -153,74 +161,45 @@ $(document).ready(function(){
 	  	}
   	} else if ( Modernizr.mq('(min-width: '+Tablet+'px)') && (Modernizr.touchevents || Modernizr.pointerevents) ) {
   		e.preventDefault();
-
   		$(this).parent('.header__menu__item').toggleClass('is-hover');
   	}
   })
-  .on('mouseenter', '.header__menu__item.is-parent', function(e) {
-  	if ( Modernizr.mq('(min-width: '+Tablet+'px)') && !Modernizr.touchevents && !Modernizr.pointerevents ) {
-  		$(this).stop().delay(500).queue(function(next) {
-  			$(this).addClass('is-hover');
-  			next();
-  		});
-	}
-  })
-	.on('mouseleave', '.header__menu__item.is-parent', function(e) {
-  	if ( Modernizr.mq('(min-width: '+Tablet+'px)') && !Modernizr.touchevents && !Modernizr.pointerevents ) {
-  		e.stopPropagation();
-	  	e.preventDefault();
-  		$(this).queue(function() {
-  			$(this).removeClass('is-hover').dequeue();
-  		});
-	}
-  })
-  .on('click', '.main_user__head__photo', function(e) {
+  .on('click', '.main_user__head__photo, .main_user__hamburger .js-hamburger', function(e) {
   	e.preventDefault();
-
-  	if ( Modernizr.mq('(max-width: 1499px)') ) {
-		$('body').addClass('is-overflow');
-		$('.header__top').addClass('is-active');
-		$(this).closest('.main_user').addClass('is-active');
-	}
+	mainUserClose();
   })
-  .on('click', '.main_user__hamburger .js-hamburger', function(e) {
-  	e.preventDefault();
-
-  	if ( Modernizr.mq('(max-width: 1499px)') ) {
-		$('body').removeClass('is-overflow');
-		$('.header__top').removeClass('is-active');
-		$(this).closest('.main_user').removeClass('is-active');
+  .on('click', function(e) {
+  	if ( $('.main_user').hasClass('is-active') && !$(e.target).closest('.main_user')[0]) {
+		mainUserClose();
 	}
   });
   
 
 	var Status = '';
-	if ( Modernizr.mq('(min-width: '+Tablet+'px)') ) {
+	if ( Modernizr.mq('(min-width: '+Wide+'px)') ) {
+		Status = 'wide';
+	} else if ( Modernizr.mq('(min-width: '+Tablet+'px)') ) {
 		Status = 'tablet';
-	} else {
+	} else if ( Modernizr.mq('(max-width: '+MobileMax+'px)') ) {
 		Status = 'mobile';
 	}
 
 	_window.on('resize', function() {
-		if ( Status != 'tablet' && Modernizr.mq('(min-width: '+Tablet+'px)') ) {
+		if ( Status != 'wide' && Modernizr.mq('(min-width: '+Wide+'px)') ) {
+			Status = 'wide';
+
+			$('.main_user').removeClass('is-active is-hidden');
+		} else if ( Status != 'tablet' && Modernizr.mq('(min-width: '+Tablet+'px)') ) {
 			Status = 'tablet';
 
 			$('body').removeClass('is-overflow');
-			$('.header__top').removeClass('is-active');
-			$('.main_user').removeClass('is-active is-hidden');
-			$('.header__menu').removeClass('is-active');
-			$('.header__menu__submenu').removeClass('is-active');
-			$('.header__top__hamburger .js-hamburger').removeClass('is-active');
+			$('.header__top, .header__menu, .header__menu__submenu, .header__top__hamburger, .header__top__hamburger .js-hamburger').removeClass('is-active');
 		} else if ( Status != 'mobile' && Modernizr.mq('(max-width: '+MobileMax+'px)') ) {
 			Status = 'mobile';
 
 			$('body').removeClass('is-overflow');
-			$('.header__top').removeClass('is-active');
-			$('.main_user').removeClass('is-active is-hidden');
-			$('.header__menu').removeClass('is-active');
-			$('.header__menu__submenu').removeClass('is-active');
-			$('.header__top__hamburger .js-hamburger').removeClass('is-active')
 			$('.header__menu__item').removeClass('is-hover');
+			$('.header__top, .header__menu, .header__menu__submenu, .header__top__hamburger, .header__top__hamburger .js-hamburger').removeClass('is-active');
 		}
 	});
 
@@ -645,53 +624,160 @@ $(document).ready(function(){
   //   }
   // }
 
+	
 
-
-	/**************************************************************************
-	Background images width lazy load
-	/**************************************************************************/
-	function bgImage(el) {
-		$(el).each(function() {
-			$el = $(this);
-
-			if ( $el.is('.cover') || $el.is('.contain') ) {
-				$el.css({
-					backgroundImage: function() {
-						return 'url('+$(this).find('>img').attr('src')+')';
-					},
-					backgroundRepeat: 'no-repeat',
-					backgroundPosition: 'center',
-					backgroundSize: function() {
-						Value = '';
-						if ( $el.is('.cover') ) {
-							Value = 'cover';
-						} else if ( $el.is('.contain') ) {
-							Value = 'contain';
-						}
-						return Value;
-					}
-				}).addClass('is-loaded').find('>img').hide();
-			}
-		})
-	}
-	/**************************************************************************
-	END Background images width lazy load
-	/**************************************************************************/
-
-
-	/**************************************************************************
-	Datepicker
-	/**************************************************************************/
-	$('.datepicker_input').datepicker({
-		position: 'top left',
-		inline: false
-	});
-	/**************************************************************************
-	END Datepicker
-	/**************************************************************************/
 
 });
 
 
+/**************************************************************************
+Plugin Видео проигрыватель
+/**************************************************************************/
+(function($) {
+    $.fn.videoPlayer = function() {
+        var Ratio = 720/1280,
+            Tag = document.createElement('script'),
+            FirstScriptTag = document.getElementsByTagName('script')[0],
+            Player;
+
+        Tag.src = "https://www.youtube.com/iframe_api";
+        FirstScriptTag.parentNode.insertBefore(Tag, FirstScriptTag);
+
+        youTubeVideo = function(Container, Src, Width) {
+            Player = new YT.Player(Container[0], {
+                videoId: Src,
+                events: {
+                    'onReady': youTubeVideoPlay,
+                    'onStateChange': youTubeVideoState
+                }
+            });
+        }
+
+        youTubeVideoState = function(e) {
+            switch (e.data) {
+                case 0:
+                    $(e.target.getIframe()).next('.videoplayer_button').show();
+                    Player.destroy();
+                    break;
+            }
+        }
+
+        youTubeVideoPlay = function(e) {
+            e.target.playVideo();
+            $(e.target.getIframe()).next('.videoplayer_button').hide();
+        }
+
+        containerBuild = function() {
+            $('.videoplayer').each(function() {
+                var Src = $(this).data('src');
+
+                $(this)
+                .attr('data-src', Src)
+                .css({
+                    backgroundImage: 'url("http://img.youtube.com/vi/'+Src+'/0.jpg")'
+                })
+                .html('<div class="videoplayer_video"></div><div class="videoplayer_button"><svg id="ico-play" viewBox="0 0 60 60" width="100%" height="100%"><path d="M53.479 27.435L10.672.915C7.553-1.132 5 .374 5 4.261v51.48c0 3.885 2.553 5.391 5.672 3.346l42.807-26.52S55 31.497 55 30.001s-1.521-2.566-1.521-2.566z"></path></svg></div>');
+            });
+        }
+
+        containerSize = function() {
+            $('.videoplayer').each(function() {
+                $(this).css({
+                    height: ($(this).width()*Ratio)+'px'
+                });
+            });
+        }
+
+        containerBuild();
+
+        $(document).on('click', '.videoplayer_button', function(e) {
+            e.preventDefault();
+            var Container = $(this).closest('.videoplayer');
+            youTubeVideo(Container.find('.videoplayer_video'), Container.data('src'), Container.data('width'));
+        });
+    }
+})(jQuery);
+$.fn.videoPlayer();
+/**************************************************************************
+END Plugin Видео проигрыватель
+/**************************************************************************/
 
 
+/**************************************************************************
+Detect if retina display
+/**************************************************************************/
+function isRetina() {
+    var mediaQuery = "(-webkit-min-device-pixel-ratio: 1.5),\
+            (min--moz-device-pixel-ratio: 1.5),\
+            (-o-min-device-pixel-ratio: 3/2),\
+            (min-resolution: 1.5dppx)";
+    if (window.devicePixelRatio > 1)
+        return true;
+    if (window.matchMedia && window.matchMedia(mediaQuery).matches)
+        return true;
+    return false;
+};
+/**************************************************************************
+END Detect if retina display
+/**************************************************************************/
+
+
+/**************************************************************************
+Background images width lazy load
+Make background-image for element Cover state or Contain from IMG src
+/**************************************************************************/
+function bgImage(el) {
+	$(el).each(function() {
+		$el = $(this);
+
+		if ( $el.is('.cover') || $el.is('.contain') ) {
+			$el.css({
+				backgroundImage: function() {
+					var Img = $(this).find('>img');
+
+					if ( isRetina && Img.attr('srcset') != '' ) {
+						return 'url('+$(this).find('>img').attr('srcset')+')';
+					} else {
+						return 'url('+$(this).find('>img').attr('src')+')';
+					}
+				},
+				backgroundRepeat: 'no-repeat',
+				backgroundPosition: 'center',
+				backgroundSize: function() {
+					Value = '';
+					if ( $el.is('.cover') ) {
+						Value = 'cover';
+					} else if ( $el.is('.contain') ) {
+						Value = 'contain';
+					}
+					return Value;
+				}
+			}).addClass('is-loaded').find('>img').hide();
+		}
+	})
+}
+$(window).on('load', function() {
+	bgImage('.cover, .contain');
+})
+/**************************************************************************
+END Background images width lazy load
+/**************************************************************************/
+
+
+/**************************************************************************
+Datepicker
+/**************************************************************************/
+$('.datepicker_input').datepicker({
+	position: 'top left',
+	inline: false,
+	autoClose: true
+})
+
+// Button for open datepicker in container
+$(document).on('click', '.datepicker_container', function(e) {
+	var dp = $(this).find('.datepicker_input').datepicker().data('datepicker');
+	dp.show();
+})
+/**************************************************************************
+END Datepicker
+/**************************************************************************/

@@ -1,0 +1,154 @@
+// Interesting block
+
+.interesting {
+	width: 100%;
+	float: left;
+	border-bottom: 1px solid #e2e2e2;
+	padding: 10px 10px;
+
+	h2 {
+		margin: 10px 0;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #e2e2e2;
+	}
+
+	@include tablet {
+		border-bottom: none;
+
+		h2 {
+			padding-bottom: 15px;
+			margin-bottom: 0;
+		}
+	}
+	@include desktop {
+		padding: 20px 20px;
+	}
+	@include hd {
+		padding: 20px 30px;
+	}
+}
+.interesting__list {
+	width: 100%;
+	float: left;
+
+	@include tablet {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		border-bottom: 1px solid #e2e2e2;
+	}
+}
+.interesting__item {
+	width: 100%;
+	float: left;
+	display: block;
+	padding: 10px 0;
+	color: #000000;
+
+	@include tablet {
+		align-content: center;
+		width: calc(100% / 3.001);
+		height: 160px;
+		position: relative;
+		border-bottom: 1px solid #e2e2e2;
+		padding: 20px 30px 10px 30px;
+		
+		&:after {
+			width: 1px;
+			background: #e2e2e2;
+			position: absolute;
+			left: 0;
+			top: 15%;
+			height: 70%;
+			content: '';
+			display: block;
+		}
+
+		&:nth-last-of-type(3),
+		&:nth-last-of-type(2),
+		&:nth-last-of-type(1),
+		&:last-child {
+			border-bottom: none;
+		}
+		&:nth-child(3n):not(:last-child) {
+			padding-right: 0;
+			border-bottom: 1px solid #e2e2e2;
+		}
+		&:nth-child(3n) {
+			padding-right: 0;
+		}
+		&:nth-child(1),
+		&:nth-child(3n+1) {
+			padding-left: 0;
+
+			&:after {
+				display: none;
+			}
+		}
+	}
+	@include desktop {
+		padding: 30px 10px 10px 20px;
+	}
+	@include wide {
+		height: 180px;
+		padding: 30px 5px 5px 15px;
+	}
+	@include hd {
+		height: 160px;
+		padding: 30px 20px 20px 40px;
+	}
+}
+.interesting__item__image {
+	float: left;
+	width: 44px;
+	height: 44px;
+	text-align: center;
+
+	svg {
+		color: #F00;
+		width: 44px;
+		height: 40px;
+		font-size: 30px;
+	}
+
+	@include tablet {
+		width: 100%;
+		float: left;
+		height: 50px;
+		text-align: left;
+		margin-bottom: 10px;
+
+		svg {
+			width: 50px;
+			height: 50px;
+		}
+	}
+}
+.interesting__item__title {
+	margin-left: 60px;
+	font-size: 16px;
+	line-height: 20px;
+	font-family: $Europedemi;
+	font-weight: 400;
+
+	@include tablet {
+		margin: 0;
+	}
+	@include wide {
+		font-size: 14px;
+	}
+	@include hd {
+		font-size: 16px;
+	}
+}
+.interesting__item__subtitle {
+	margin-left: 60px;
+	font-size: 12px;
+	line-height: 16px;
+	color: #818181;
+
+	@include tablet {
+		margin: 0;
+	}
+}

@@ -1,0 +1,33 @@
+// Slideshow in sidebar - banner
+.sidebar__banner_slideshow {
+	display: none;
+	width: 100%;
+	float: left;
+
+	@include wide {
+		display: block;
+		padding: 20px;
+	}
+	@include hd {
+		padding: 30px;
+	}
+	
+	.swiper-slide {
+		width: 100%;
+
+		a {
+			img {
+				display: block;
+				max-width: 100%;
+			}
+		}
+	}
+	.swiper-pagination {
+		text-align: right;
+		padding-right: 10px;
+	}
+	.swiper-pagination-bullet {
+		height: 6px;
+		width: 6px;
+	}
+}

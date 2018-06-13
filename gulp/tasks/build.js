@@ -20,9 +20,9 @@ gulp.task('build:development', function(callback) {
 function build(callback) {
   runSequence(
     'clean:dist',
+    'sass',
     'sprite:svg',
     'sprite:png',
-    'sass',
     'html',
     // 'pug',
     'javascript',
