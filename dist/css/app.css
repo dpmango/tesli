@@ -5931,11 +5931,8 @@ button:focus {
 }
 
 .header__menu__item-school .header__menu__link i {
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  background: url("../img/logo-school.png") center no-repeat;
-  vertical-align: middle;
+  position: relative;
+  top: 1px;
   margin-right: 5px;
 }
 
