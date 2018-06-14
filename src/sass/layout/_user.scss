@@ -6,6 +6,7 @@
 .user__media {
 	float: left;
 	width: 100%;
+	text-align: center;
 
 	@include tablet {
 		width: 310px;
@@ -13,9 +14,11 @@
 }
 .user__photo {
 	width: 100%;
-	float: left;
 	display: block;
+	float: none;
 	margin-bottom: 20px;
+	max-width: 400px;
+	margin: 0 auto;
 	@include disableAfter;
 }
 .user__achievements {

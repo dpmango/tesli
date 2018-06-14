@@ -1,32 +1,14 @@
 // Page 404
-
 .page-404 {
-	.header__top__head {
-		width: 100%;
-		display: flex;
-		justify-content: center;
-	}
-	.header__logo {
-		margin: auto;
-	}
-	.body__main {
-		height: 100%;
-	}
-	.content {
-		height: 100%;
-		max-width: 100%;
-		align-content: center;
-		align-items: center;
-		display: flex;
-		flex-wrap: wrap;
-	}
-}
-.page404 {
-	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+	width: 100%;
+	max-width: 100%;
 }
 .page404__title {
 	font-family: $Europedemi;

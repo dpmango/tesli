@@ -4292,24 +4292,22 @@ table td {
 }
 
 #wrapper {
-  width: 100%;
-  float: left;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1 1;
 }
 
 @media only screen and (min-width: 1200px) {
-  #wrapper > .container {
+  #wrapper {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-box-orient: initial;
-    -webkit-box-direction: initial;
-    -webkit-flex-direction: initial;
-        -ms-flex-direction: initial;
-            flex-direction: initial;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
   }
 }
 
@@ -4328,8 +4326,10 @@ table td {
 
 .body_wrapper {
   width: 100%;
-  height: 100%;
-  float: left;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1 1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -4338,33 +4338,21 @@ table td {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-        -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
     -webkit-box-align: stretch;
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
-    -webkit-align-content: stretch;
-        -ms-flex-line-pack: stretch;
-            align-content: stretch;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .body_wrapper {
+    width: 500px;
     min-width: 100px;
     max-width: 100%;
     -webkit-box-flex: 1;
@@ -4375,9 +4363,7 @@ table td {
 }
 
 .body {
-  float: left;
-  width: -webkit-calc(100% - 1px);
-  width: calc(100% - 1px);
+  width: 100%;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -4386,22 +4372,21 @@ table td {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  -webkit-align-content: flex-start;
-      -ms-flex-line-pack: start;
-          align-content: flex-start;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   height: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1 1;
 }
 
 @media only screen and (min-width: 768px) {
   .body {
+    width: -webkit-calc(100% - 1px);
+    width: calc(100% - 1px);
     border-right: 1px solid #e2e2e2;
   }
   .body:before {
@@ -4430,39 +4415,31 @@ table td {
 
 .body__main {
   width: 100%;
-  float: left;
+  height: 100%;
   -webkit-box-ordinal-group: 1;
   -webkit-order: 0;
       -ms-flex-order: 0;
           order: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1 1;
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  justify-content: flex-start;
-  padding-bottom: 50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @media only screen and (min-width: 768px) {
   .body__main {
     border-left: 1px solid #e2e2e2;
     min-width: 100px;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1 1;
   }
   .body__main:before {
     content: '';
@@ -4478,6 +4455,7 @@ table td {
 
 @media only screen and (min-width: 992px) {
   .body__main {
+    padding-bottom: 50px;
     -webkit-box-ordinal-group: 2;
     -webkit-order: 1;
         -ms-flex-order: 1;
@@ -4495,6 +4473,10 @@ table td {
   width: 100%;
   float: left;
   max-width: 940px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1 1;
   padding: 20px 10px 0 10px;
 }
 
@@ -4601,6 +4583,7 @@ table td {
 .user__media {
   float: left;
   width: 100%;
+  text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
@@ -4611,9 +4594,11 @@ table td {
 
 .user__photo {
   width: 100%;
-  float: left;
   display: block;
+  float: none;
   margin-bottom: 20px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .content .user__photo:before {
@@ -4847,27 +4832,7 @@ table td {
   float: left;
 }
 
-.page-404 .header__top__head {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.page-404 .header__logo {
-  margin: auto;
-}
-
-.page-404 .body__main {
-  height: 100%;
-}
-
-.page-404 .content {
+.page-404 {
   height: 100%;
   max-width: 100%;
   -webkit-align-content: center;
@@ -4877,32 +4842,19 @@ table td {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-}
-
-.page404 {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
 }
 
 .page404__title {
