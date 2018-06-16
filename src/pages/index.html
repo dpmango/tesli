@@ -1,13 +1,13 @@
 @@include('_componenets/page-header.html')
 
 
-<body role="page">
+<body role="document">
 <div id="wrapper" class="container">
 	<div class="body_wrapper">
 		@@include('_componenets/header.html')
 
 
-		<section class="body">
+		<div class="body">
 			<aside class="sidebar sidebar-left">
 				<div class="sidebar__people sidebar__people-birth">
 					<h3>Дни рождения</h3>
@@ -75,37 +75,37 @@
 							<div class="interesting__item__title">HR-награды Tesli</div>
 							<div class="interesting__item__subtitle">Отмечаем лучших сотрудников</div>
 						</a>
-						
+
 						<a href="#" class="interesting__item">
 							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-gift"})</div>
 							<div class="interesting__item__title">Конкурсы и акции</div>
 							<div class="interesting__item__subtitle">Участвуйте и побеждайте!</div>
 						</a>
-						
+
 						<a href="#" class="interesting__item">
 							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-learning"})</div>
 							<div class="interesting__item__title">Программа стажировок для сотрудинков</div>
 							<div class="interesting__item__subtitle">Начните успешную карьеру!</div>
 						</a>
-						
+
 						<a href="#" class="interesting__item">
 							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-airplane"})</div>
 							<div class="interesting__item__title">Travel-политика</div>
 							<div class="interesting__item__subtitle">Путешествуем вместе по всему миру одним дружным коллективом</div>
 						</a>
-						
+
 						<a href="#" class="interesting__item">
 							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-light-bulb"})</div>
 							<div class="interesting__item__title">Фабрика идей</div>
 							<div class="interesting__item__subtitle">Поделитесь своей идеей</div>
 						</a>
-						
+
 						<a href="#" class="interesting__item">
 							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-microphone"})</div>
 							<div class="interesting__item__title">Радио Tesli</div>
 							<div class="interesting__item__subtitle">Лучшая музыка в одном месте</div>
 						</a>
-						
+
 						<a href="#" class="interesting__item">
 							<div class="interesting__item__image">@@include('_modules/_svg-ico.html', {"href": "ico-airplane"})</div>
 							<div class="interesting__item__title">Travel-политика</div>
@@ -121,7 +121,7 @@
 				</div>
 
 
-				<main class="content" role="main">
+				<main class="content">
 					<div class="news">
 						<h2>Новости</h2>
 
@@ -159,18 +159,18 @@
 					</div>
 				</main>
 			</div>
-		</section>
+		</div>
 	</div>
 
 
 	@@include('_componenets/sidebar-right.html')
-	
+
 	@@include('_componenets/chat.html')
 </div>
 
 
 @@include('_componenets/footer.html')
+@@include('_componenets/scripts.html')
 </body>
 
-
-@@include('_componenets/page-footer.html')
+</html>

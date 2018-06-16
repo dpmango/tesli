@@ -1,7 +1,7 @@
 // Page 404
 .page-404 {
 	height: 100%;
-	max-width: 100%;
+	min-height: calc(100vh - 66px - 48px - 50px);
 	align-content: center;
 	align-items: center;
 	justify-content: center;
@@ -9,6 +9,9 @@
 	flex-wrap: wrap;
 	width: 100%;
 	max-width: 100%;
+	@include desktop {
+		min-height: calc(100vh - 96px - 48px - 50px);
+	}
 }
 .page404__title {
 	font-family: $Europedemi;
@@ -34,7 +37,7 @@
 .page404__link {
 	font-size: 16px;
 	color: $ColorRed;
-	
+
 	&:hover,
 	&:focus {
 		color: $ColorRed;
