@@ -5576,6 +5576,7 @@ button:focus {
   -webkit-transition: all 0.25s linear;
   -o-transition: all 0.25s linear;
   transition: all 0.25s linear;
+  pointer-events: none;
 }
 
 .datepicker_container:after {
@@ -6606,7 +6607,7 @@ input.header__top__search__inputbox {
 }
 
 input.header__top__search__inputbox:focus {
-  border-color: #ed2124;
+  border-color: #909090;
 }
 
 @media only screen and (min-width: 768px) {

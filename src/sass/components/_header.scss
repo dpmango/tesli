@@ -297,7 +297,7 @@
 		visibility: hidden;
 		opacity: 0;
 		transition: $TransitionObject;
-		
+
 		.header__menu__item.is-parent:hover &,
 		.header__menu__item.is-parent:active & {
 			opacity: 1;
@@ -467,8 +467,6 @@
 		display: none;
 	}
 
-
-	
 	@include mobileMax {
 		top: 9px;
 		position: relative;
@@ -554,7 +552,7 @@ input.header__top__search__inputbox {
 	transition: $TransitionLink;
 	
 	&:focus {
-		border-color: $ColorRed;
+		border-color: #909090;
 	}
 
 	@include tablet {

@@ -1,7 +1,7 @@
 @@include('_componenets/page-header.html')
 
 
-<body role="page">
+<body >
 <div id="wrapper" class="container">
 	<div class="body_wrapper">
 		@@include('_componenets/header.html')
@@ -16,7 +16,7 @@
 				</div>
 
 
-				<main class="content" role="main">
+				<main class="content">
 					<div class="user">
 						<div class="user__head">
 							<h1>Гаврилова Татьяна</h1>
@@ -25,28 +25,28 @@
 						</div>
 
 						<div class="user__media">
-							<a href="#" class="user__photo"><img src="img/ps_img/user-big.jpg"></a>
+							<a href="#" class="user__photo"><img alt="" src="img/ps_img/user-big.jpg"></a>
 
 							<div class="user__achievements">
 								<div class="swiper-container">
 								    <div class="swiper-wrapper">
 										<div class="swiper-slide">
 											<div class="user__achievements__item">
-												<div class="user__achievements__item__image"><img src="img/ps_img/achievement-ten.png"></div>
+												<div class="user__achievements__item__image"><img alt="" src="img/ps_img/achievement-ten.png"></div>
 												<div class="user__achievements__item__title">10 лет в компании</div>
 											</div>
 										</div>
 
 										<div class="swiper-slide">
 											<div class="user__achievements__item">
-												<div class="user__achievements__item__image"><img src="img/ps_img/achievement-idea.png"></div>
+												<div class="user__achievements__item__image"><img alt="" src="img/ps_img/achievement-idea.png"></div>
 												<div class="user__achievements__item__title">награда за креативность</div>
 											</div>
 										</div>
 
 										<div class="swiper-slide">
 											<div class="user__achievements__item">
-												<div class="user__achievements__item__image"><img src="img/ps_img/achievement-love.png"></div>
+												<div class="user__achievements__item__image"><img alt="" src="img/ps_img/achievement-love.png"></div>
 												<div class="user__achievements__item__title">любимый руководитель</div>
 											</div>
 										</div>
@@ -67,7 +67,7 @@
 										<a href="tel:89303005001">8 (930) 300-50-01</a>
 									</div>
 								</div>
-								
+
 								<div class="user__info__block">
 									<div class="user__info__block__title">E-mail</div>
 									<div class="user__info__block__value">
@@ -75,7 +75,7 @@
 										<a href="mailto:gavrilova@gmail.com">gavrilova@gmail.com</a>
 									</div>
 								</div>
-								
+
 								<div class="user__info__block">
 									<div class="user__info__block__title">Офис</div>
 									<div class="user__info__block__value">
@@ -200,9 +200,8 @@
 	@@include('_componenets/sidebar-right.html')
 </div>
 
-
 @@include('_componenets/footer.html')
+@@include('_componenets/scripts.html')
 </body>
 
-
-@@include('_componenets/page-footer.html')
+</html>
