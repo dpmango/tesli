@@ -336,7 +336,7 @@ table {
 	float: left;
 	flex: 1;
 	padding: 20px 10px 0 10px;
-	
+
 	.page-article & {
 		max-width: 940px;
 	}
@@ -348,7 +348,7 @@ table {
 		align-items: center;
 		justify-content: center;
 	}
-	
+
 	img {
 		border: none;
 		float: left;
@@ -364,8 +364,8 @@ table {
 		margin-top: 0;
 	}
 
-	
-	
+
+
 	@include desktop {
 		padding: 20px 20px 0 20px;
 	}
@@ -413,3 +413,6 @@ table {
 	}
 }
 
+br.clear{
+  clear: both;  
+}

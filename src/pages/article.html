@@ -10,7 +10,7 @@
 		<div class="body page-article">
 			<div class="body__main">
 				<main class="content">
-					<form action="" method="post" class="js-registration-form">
+					<form action="#" method="post" class="js-registration-form">
 						<small>Заголовки</small>
 
 						<h1>Задачи и проекты</h1>
@@ -75,17 +75,17 @@
 
 						@@include('_modules/_user-card.html')
 						@@include('_modules/_user-card-2.html')
-						
-						<br clear="all">
+
+						<br class="clear">
 						<br>
 						<a href="#">Иванченко А.В.</a> <a href="#">Иванченко А.В.</a>
-						
+
 						<hr>
 
 						<small>Фото</small>
 
 						@@include('_modules/_media-card-photo.html')
-						
+
 						<small>Видео</small>
 
 						@@include('_modules/_media-card-video.html')
@@ -111,11 +111,11 @@
 
 						<div class="ui-group">
 							<label>Комментарий</label>
-							<textarea name="" placeholder="Комментарий" value="" required></textarea>
+							<textarea name="comment" placeholder="Комментарий" required></textarea>
 						</div>
 
 						<br>
-						
+
 
 						<div class="datepicker_wrapper">
 							<div class="datepicker_container">
@@ -129,12 +129,12 @@
 							</div>
 						</div>
 
-						<br clear="all">
+						<br class="clear">
 						<br>
 
 						<div class="ui-group float-left">
 							<label>Выберите город</label>
-							<select name="">
+							<select name="city">
 								<option value="1">Москва</option>
 								<option value="2">Мурманск</option>
 								<option value="3">Новосибирск</option>
@@ -146,7 +146,7 @@
 
 						<div class="ui-group float-left">
 							<label>Выберите город</label>
-							<select name="">
+							<select name="city2">
 								<option value="1">Москва</option>
 								<option value="2">Мурманск</option>
 								<option value="3">Новосибирск</option>
@@ -159,9 +159,9 @@
 						<small>Поля ввода</small>
 						<br>
 
-						<button type="submit">Отправить заявление</button> <input type="button" name="" value="Отправить заявление">
+						<button type="submit">Отправить заявление</button> <input type="button" name="send" value="Отправить заявление">
 
-						<br clear="all">
+						<br class="clear">
 						<hr>
 						<small>Таблица</small>
 
