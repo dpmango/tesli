@@ -13,7 +13,11 @@
 .main_slideshow__item {
 	overflow: hidden;
 	width: 100%;
-	@include aspect-ratio(16, 9);
+	@include aspect-ratio(16, 8.7);
+
+	@include tablet {
+		@include aspect-ratio(16, 7.2);
+	}
 }
 .main_slideshow__title {
 	position: absolute;
@@ -23,7 +27,7 @@
 	text-align: center;
 
 	@include hd {
-		left: 60px;
+		left: 53px;
 		bottom: 60px;
 	}
 }

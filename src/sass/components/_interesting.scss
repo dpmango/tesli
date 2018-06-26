@@ -4,11 +4,12 @@
 	width: 100%;
 	float: left;
 	border-bottom: 1px solid #e2e2e2;
-	padding: 10px 10px;
+	padding: 10px 10px 16px 10px;
+	margin-bottom: 4px;
 
 	h2 {
-		margin: 10px 0;
-		padding-bottom: 10px;
+		margin: 8px 0;
+		padding-bottom: 8px;
 		border-bottom: 1px solid #e2e2e2;
 	}
 
@@ -24,7 +25,7 @@
 		padding: 20px 20px;
 	}
 	@include hd {
-		padding: 20px 30px;
+		padding: 14px 30px;
 	}
 }
 .interesting__list {
@@ -47,6 +48,9 @@
 	color: #000000;
 
 	@include tablet {
+		display: flex;
+		float: none;
+		flex-wrap: wrap;
 		align-content: center;
 		width: calc(100% / 3.001);
 		height: 160px;
@@ -88,15 +92,15 @@
 		}
 	}
 	@include desktop {
+		align-items: flex-start;
+		align-content: flex-start;
 		padding: 30px 10px 10px 20px;
 	}
 	@include wide {
-		height: 180px;
 		padding: 30px 5px 5px 15px;
 	}
 	@include hd {
-		height: 160px;
-		padding: 30px 20px 20px 40px;
+		padding: 15px 20px 20px 40px;
 	}
 }
 .interesting__item__image {
@@ -117,11 +121,10 @@
 		float: left;
 		height: 50px;
 		text-align: left;
-		margin-bottom: 10px;
+		margin-bottom: 15px;
 
 		svg {
-			width: 50px;
-			height: 50px;
+			height: 100%;
 		}
 	}
 }
@@ -145,7 +148,7 @@
 .interesting__item__subtitle {
 	margin-left: 60px;
 	font-size: 12px;
-	line-height: 16px;
+	line-height: 22px;
 	color: #818181;
 
 	@include tablet {

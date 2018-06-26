@@ -29,7 +29,7 @@ $(document).ready(function(){
     // initScrollMonitor();
     initMasks();
     initSelectric();
-    // initValidations();
+    initValidations();
 
     // development helper
     // _window.on('resize', function() {
@@ -257,15 +257,70 @@ $(document).ready(function(){
   	};
 
     // EXAMPLE SWIPER
-    new Swiper('.js-slider', SwiperOptions);
+    // var SwiperOptionsSlider = $.extend({}, SwiperOptions, true);
+    // $('.js-slider').each(function() {
+	   //  new Swiper('.js-slider', SwiperOptionsSlider);
+    // })
+    
 
-    SwiperOptions.effect = 'fade';
-    new Swiper('.js-slider-fade', SwiperOptions);
 
-    SwiperOptions.effect = 'swipe';
-    SwiperOptions.slidesPerView = 3;
-    SwiperOptions.loop = true;
-    new Swiper('.user__achievements .swiper-container', SwiperOptions);
+    var SliderMain = new Swiper('.main_slideshow .swiper-container', {
+    	wrapperClass: "swiper-wrapper",
+		slideClass: "swiper-slide",
+		direction: 'horizontal',
+		loop: false,
+		watchOverflow: true,
+		setWrapperSize: false,
+		spaceBetween: 0,
+		slidesPerView: 1,
+		autoHeight: true,
+		normalizeSlideIndex: true,
+		pagination: {
+			el: '.main_slideshow .swiper-pagination',
+    		type: 'bullets',
+    		clickable: true
+		}
+    });
+
+
+    var SliderSidebarBanner = new Swiper('.sidebar__banner_slideshow .swiper-container', {
+    	wrapperClass: "swiper-wrapper",
+		slideClass: "swiper-slide",
+		direction: 'horizontal',
+		loop: false,
+		watchOverflow: true,
+		setWrapperSize: false,
+		spaceBetween: 0,
+		slidesPerView: 1,
+		autoHeight: true,
+		normalizeSlideIndex: true,
+		pagination: {
+			el: '.sidebar__banner_slideshow .swiper-pagination',
+    		type: 'bullets',
+    		clickable: true
+		}
+    });
+
+
+    var SliderAchievements = new Swiper('.user__achievements .swiper-container', {
+    	wrapperClass: "swiper-wrapper",
+		slideClass: "swiper-slide",
+		direction: 'horizontal',
+		loop: true,
+		watchOverflow: true,
+		setWrapperSize: false,
+		spaceBetween: 0,
+		slidesPerView: 3,
+		autoHeight: true,
+		normalizeSlideIndex: true,
+		autoplay: {
+			delay: 3000
+		},
+		navigation: {
+			nextEl: '.user__achievements .swiper-next',
+			prevEl: '.user__achievements .swiper-prev'
+		}
+    });
   }
 
   //////////
@@ -472,7 +527,6 @@ $(document).ready(function(){
       unhighlight: validateUnhighlight,
       submitHandler: validateSubmitHandler,
       rules: {
-        last_name: "required",
         first_name: "required",
         email: {
           required: true,
@@ -485,7 +539,6 @@ $(document).ready(function(){
         phone: validatePhone
       },
       messages: {
-        last_name: "Заполните это поле",
         first_name: "Заполните это поле",
         email: {
             required: "Заполните это поле",

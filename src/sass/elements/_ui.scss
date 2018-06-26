@@ -77,6 +77,10 @@ button {
 .ui-group {
 	margin-bottom: 20px;
 
+	&.float-left {
+		float: left;
+	}
+
 	label {
 		display: block;
 		margin-bottom: 5px;
@@ -100,7 +104,7 @@ button {
 	}
 
 	@include tablet {
-		min-width: 286px;
+		min-width: 291px;
 		padding-right: 20px;
 		margin: 0 0 20px 0;
 		float: none;
@@ -192,6 +196,17 @@ button {
 }
 
 // Datepicker container
+.datepicker_wrapper {
+	width: 100%;
+	float: left;
+
+	span {
+		display: block;
+		margin: 0 10px;
+		float: left;
+		line-height: 40px;
+	}
+}
 .datepicker_container {
 	position: relative;
 	float: left;

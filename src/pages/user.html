@@ -7,7 +7,7 @@
 		@@include('_componenets/header.html')
 
 
-		<div class="body">
+		<div class="body page-user">
 			<div class="body__main">
 				<div class="pathway">
 					<a href="index.html" class="pathway__item">Главная</a>
@@ -16,8 +16,14 @@
 				</div>
 
 
-				<main class="content page-user" role="main">
+				<main class="content" role="main">
 					<div class="user">
+						<div class="user__head">
+							<h1>Гаврилова Татьяна</h1>
+							<div class="user__head__post">Директор филиала</div>
+							<div class="user__head__online">Была онлайн: <span>Вчера, 23:30</span></div>
+						</div>
+
 						<div class="user__media">
 							<a href="#" class="user__photo"><img src="img/ps_img/user-big.jpg"></a>
 
@@ -53,14 +59,6 @@
 						</div>
 
 						<div class="user__content">
-							<div class="user__head">
-								<h1>Гаврилова Татьяна</h1>
-								<div class="user__head__post">Директор филиала</div>
-								<div class="user__head__online">Была онлайн: <span>Вчера, 23:30</span></div>
-							</div>
-
-							<hr>
-
 							<div class="user__info">
 								<div class="user__info__block">
 									<div class="user__info__block__title">Телефон</div>
@@ -128,46 +126,67 @@
 							<div class="user__context">
 								<div class="user__context__block">
 									<h2>Индивидуальный план развития</h2>
-
-									<table>
-										<tr>
-											<th>Название задачи</th>
-											<th>Результат</th>
-											<th>Срок </th>
-										</tr>
-										<tr>
-											<td>Повышение квалификаций руководителя</td>
-											<td>В процессе</td>
-											<td>22.02.2018</td>
-										</tr>
-										<tr>
-											<td>Прохождения практикума по закупкам по 44-ФЗ и 223-ФЗ</td>
-											<td>Завершен</td>
-											<td>23.02.2018</td>
-										</tr>
-									</table>
+									
+									<div class="user__context__block__table">
+										<div class="user__context__block__table__row">
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Название задачи</div>
+												<div class="user__context__block__table__cell__value">Повышение квалификаций руководителя</div>
+											</div>
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Результат</div>
+												<div class="user__context__block__table__cell__value">В процессе</div>
+											</div>
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Срок</div>
+												<div class="user__context__block__table__cell__value">22.02.2018</div>
+											</div>
+										</div>
+										
+										<div class="user__context__block__table__row">
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Название задачи</div>
+												<div class="user__context__block__table__cell__value">Прохождения практикума по закупкам по 44-ФЗ и 223-ФЗ</div>
+											</div>
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Результат</div>
+												<div class="user__context__block__table__cell__value">Завершен</div>
+											</div>
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Срок</div>
+												<div class="user__context__block__table__cell__value">23.02.2018</div>
+											</div>
+										</div>
+									</div>
 								</div>
-
+									
+								
 								<div class="user__context__block">
 									<h2>События</h2>
 
-									<table>
-										<tr>
-											<th>Название задачи</th>
-											<th>Результат</th>
-											<th>Срок </th>
-										</tr>
-										<tr>
-											<td>Повышение квалификаций руководителя</td>
-											<td>В процессе</td>
-											<td>22.02.2018</td>
-										</tr>
-										<tr>
-											<td>Прохождения практикума по закупкам по 44-ФЗ и 223-ФЗ</td>
-											<td>Завершен</td>
-											<td>23.02.2018</td>
-										</tr>
-									</table>
+									<div class="user__context__block__table">
+										<div class="user__context__block__table__row">
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Название события</div>
+												<div class="user__context__block__table__cell__value">Встреча руководителей филиалов в Москве</div>
+											</div>
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Дата</div>
+												<div class="user__context__block__table__cell__value">01.03.2018</div>
+											</div>
+										</div>
+
+										<div class="user__context__block__table__row">
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Название события</div>
+												<div class="user__context__block__table__cell__value">Встреча с сотрудниками филиала для планирования задач на II-квартал 2018 года </div>
+											</div>
+											<div class="user__context__block__table__cell">
+												<div class="user__context__block__table__cell__title">Дата</div>
+												<div class="user__context__block__table__cell__value">05.03.2018</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

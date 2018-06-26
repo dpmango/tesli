@@ -17,7 +17,7 @@ gulp.task('sprite:png', function() {
         retinaSrcFilter: config.src.iconsPng + '/*@2x.png',
         retinaImgName: 'sprite@2x.png',
         retinaImgPath: '../img/sprite@2x.png',
-        // padding: 10,
+        padding: 10,
         algorithm: 'binary-tree',
         cssTemplate: __dirname + '/sprite.template.handlebars'
     }));

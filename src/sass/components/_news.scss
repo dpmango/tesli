@@ -4,9 +4,14 @@
 	width: 100%;
 	float: left;
 
+	h2 {
+		margin-bottom: 15px;
+	}
+
 	@include tablet {
 		h2 {
-			padding-bottom: 15px;
+			padding-bottom: 10px;
+			margin-bottom: 20px;
 			border-bottom: 1px solid #e2e2e2;
 		}
 	}
@@ -17,7 +22,7 @@
 }
 .news__item {
 	width: 100%;
-	margin-top: 30px;
+	margin-top: 26px;
 	max-width: 400px;
 	float: left;
 
@@ -38,11 +43,15 @@ a.news__item__link {
 .news__item__image {
 	@include tablet {
 		float: left;
-		width: 240px;
+		width: 220px;
 	}
 }
 .news__item__image_inner {
-	@include aspect-ratio(16, 9);
+	@include aspect-ratio(16, 9.5);
+
+	@include tablet {
+		@include aspect-ratio(16, 9.1);
+	}
 }
 .news__item__title {
 	width: 100%;
@@ -56,7 +65,7 @@ a.news__item__link {
 	@include tablet {
 		width: auto;
 		float: none;
-		margin-left: 265px;
+		margin-left: 245px;
 		padding-top: 0;
 	}
 }
@@ -68,6 +77,6 @@ a.news__item__link {
 	@include tablet {
 		width: auto;
 		float: none;
-		margin-left: 265px;
+		margin-left: 245px;
 	}
 }

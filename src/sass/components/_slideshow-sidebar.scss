@@ -6,10 +6,10 @@
 
 	@include wide {
 		display: block;
-		padding: 20px;
+		padding: 33px 20px;
 	}
 	@include hd {
-		padding: 30px;
+		padding: 33px 30px;
 	}
 	
 	.swiper-slide {

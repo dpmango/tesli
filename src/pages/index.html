@@ -45,7 +45,7 @@
 
 			<div class="body__main">
 				<div class="main_slideshow">
-					<div class="swiper-container js-slider">
+					<div class="swiper-container">
 					    <div class="swiper-wrapper">
 							<div class="swiper-slide">
 								<a href="#" class="main_slideshow__item cover">@@include('_modules/_img.html', {"src":"img/ps_img/slideshow-1","format":"jpg"})</a>
@@ -126,7 +126,7 @@
 						<h2>Новости</h2>
 
 						<div class="news__list">
-							@@for (var i = 0; i < 3; i++) {
+							@@for (var i = 0; i < 2; i++) {
 							<div class="news__item">
 								<a href="article.html" class="news__item__link">
 									<div class="news__item__image"><div class="news__item__image_inner cover">@@include('_modules/_img.html', {"src":"img/ps_img/news-1","format":"jpg"})</div></div>
@@ -147,6 +147,16 @@
 								<div class="news__item__desc">На прошлой неделе завершился IV Чемпионат Костромской области по мини-футболу. Команды собрались со всей области, поэтому турнир выдался тяжелым. Для команды «Тесли» последняя игра с командой «Сбербанк»</div>
 							</div>
 							}
+
+							<div class="news__item">
+								<a href="article.html" class="news__item__link">
+									<div class="news__item__image"><div class="news__item__image_inner cover">@@include('_modules/_img.html', {"src":"img/ps_img/news-2","format":"jpg"})</div></div>
+
+									<div class="news__item__title">Победа команды «Тесли» в чемпионате по мини-футболу</div>
+								</a>
+
+								<div class="news__item__desc">На прошлой неделе завершился IV Чемпионат Костромской области по мини-футболу. Команды собрались со всей области, поэтому турнир выдался тяжелым. Для команды «Тесли» последняя игра с командой «Сбербанк»</div>
+							</div>
 						</div>
 
 						<div class="pagination">

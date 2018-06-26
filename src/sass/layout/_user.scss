@@ -1,7 +1,28 @@
 // Page User
 
 .page-user {
-	max-width: 100%;
+	&:after,
+	&:before {
+		display: none;
+	}
+
+	.body__main {
+		border-left: none;
+
+		&:after,
+		&:before {
+			display: none;
+		}
+	}
+
+	.content {
+		max-width: 100%;
+	}
+}
+.user {
+	width: 100%;
+	float: left;
+	position: relative;
 }
 .user__media {
 	float: left;
@@ -9,21 +30,39 @@
 	text-align: center;
 
 	@include tablet {
+		position: absolute;
+		left: 0;
+		top: 0;
 		width: 310px;
+		order: -1;
 	}
 }
 .user__photo {
 	width: 100%;
 	display: block;
+	max-height: 350px;
+	overflow: hidden;
 	float: none;
 	margin-bottom: 20px;
 	max-width: 400px;
 	margin: 0 auto;
 	@include disableAfter;
+
+	img {
+		width: 100%;
+	}
+
+	@include desktop {
+		max-height: 440px;
+	}
 }
 .user__achievements {
 	width: 100%;
 	float: left;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e2e2e2;
 
 	.swiper-next,
 	.swiper-prev {
@@ -31,7 +70,7 @@
 		top: 50%;
 		width: 26px;
 		height: 26px;
-		margin-top: -18px;
+		margin-top: -28px;
 		color: #d0d0d0;
 		cursor: pointer;
 		z-index: 100;
@@ -105,37 +144,56 @@
 	overflow: auto;
 
 	@include tablet {
-		float: none;
-		width: auto;
-		margin-left: 330px;
+		float: right;
 		vertical-align: top;
+		width: calc(100% - 340px);
+		margin-left: 30px;
 	}
 }
 .user__head {
 	width: 100%;
 	float: left;
+	position: relative;
+	top: -7px;
 
 	h1 {
-		margin: 20px 0 5px 0;
+		width: 100%;
+		float: left;
+		margin: 0 0 5px 0;
 	}
 
 	@include tablet {
+		width: calc(100% - 340px);
+		margin-left: 30px;
+		float: right;
+
 		h1 {
 			margin-top: 0;
+			padding-top: 0;
 		}
 	}
 }
 .user__head__post {
 	color: #818181;
+	width: 100%;
+	float: left;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #e2e2e2;
 }
 .user__head__online {
 	font-size: 12px;
 	color: #818181;
+	padding: 5px 0;
+	width: 100%;
+	float: left;
 
 	@include desktop {
 		position: absolute;
 		right: 0;
-		top: 5px;
+		top: 7px;
+		text-align: right;
+		width: auto;
+		z-index: 100;
 	}
 }
 
@@ -150,10 +208,15 @@
 }
 .user__info__block {
 	float: left;
-	margin-top: 15px;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 10px;
 
 	@include tablet {
-		min-width: 240px;
+		width: auto;
+		margin-top: 5px;
+		margin-bottom: 10px;
+		min-width: 210px;
 		display: inline-block;
 		margin-right: 10px;
 	}
@@ -179,12 +242,21 @@
 }
 .user__groups__block {
 	float: left;
-	margin-top: 15px;
+	width: 100%;
+	margin-top: 5px;
+	margin-bottom: 10px;
 
 	@include tablet {
-		min-width: 240px;
+		width: auto;
+		margin-top: 5px;
+		margin-bottom: 10px;
+		min-width: 210px;
 		display: inline-block;
 		margin-right: 10px;
+
+		&:nth-child(3) {
+			min-width: 350px;
+		}
 	}
 }
 .user__groups__block__title {
@@ -193,9 +265,125 @@
 	line-height: 18px;
 }
 
-.user__context__block {
-	margin-top: 10px;
-	margin-bottom: 20px;
+.user__context {
 	width: 100%;
 	float: left;
+
+	@include desktop {
+		padding-top: 10px;
+	}
+}
+.user__context__block {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 15px;
+	width: 100%;
+	float: left;
+	border-top: 1px solid #e2e2e2;
+
+	&:nth-child(1) {
+		padding-top: 0;
+		margin-top: 0;
+		border-top: none;
+	}
+
+	@include desktop {
+		border: none;
+	}
+}
+
+.user__context__block__table {
+	width: 100%;
+	float: left;
+	padding: 0;
+
+	@include desktop {
+		display: table;
+	}
+}
+.user__context__block__table__row {
+	width: 100%;
+	float: left;
+	margin-top: 20px;
+	border-top: 1px solid #e2e2e2;
+	padding-top: 20px;
+
+	&:nth-child(1) {
+		margin-top: 0;
+		border-top: none;
+		padding-top: 0;
+	}
+
+	@include desktop {
+		width: auto;
+		float: none;
+		margin: 0;
+		border: none;
+		display: table-row;
+
+		&:nth-child(1) {
+			padding-top: 0;
+		}
+	}
+}
+.user__context__block__table__cell {
+	width: auto;
+	float: left;
+	margin-top: 10px;
+	padding-right: 20px;
+
+	&:nth-child(1) {
+		width: 100%;
+		margin-top: 0;
+	}
+
+	@include desktop {
+		width: auto;
+		float: none;
+		padding: 0;
+		margin: 0;
+		border: none;
+		display: table-cell;
+		min-width: 100px;
+		padding: 19px 0;
+		border-bottom: 1px solid #e2e2e2;
+
+		&:nth-child(1) {
+			width: auto;
+		}
+
+		.user__context__block__table__row:nth-child(1) & {
+			padding-top: 0;
+		}
+	}
+}
+.user__context__block__table__cell__title {
+	font-size: 12px;
+	line-height: 21px;
+	color: #818181;
+	width: 100%;
+	float: left;
+	
+	@include desktop {
+		display: none;
+		background: #f8f8f8;
+		padding: 9px 14px;
+		color: #818181;
+
+		.user__context__block__table__row:nth-child(1) & {
+			display: table-cell;
+			margin-bottom: 19px;
+		}
+	}
+}
+.user__context__block__table__cell__value {
+	font-size: 14px;
+	line-height: 20px;
+	color: #000000 !important;
+	font-weight: 500;
+
+	@include desktop {
+		padding: 0 14px;
+		color: #818181;
+	}
 }

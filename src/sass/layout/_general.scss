@@ -87,7 +87,7 @@ a {
 h1 {
 	font-size: 28px;
 	line-height: 34px;
-	margin: 0 0 25px 0;
+	margin: 0 0 30px 0;
 	color: #000000;
 	font-weight: 400;
 	font-family: $Europedemi;
@@ -95,7 +95,7 @@ h1 {
 h2 {
 	font-size: 22px;
 	line-height: 30px;
-	margin: 0 0 15px 0;
+	margin: 0 0 30px 0;
 	color: #000000;
 	font-weight: 400;
 	font-family: $Europedemi;
@@ -103,7 +103,7 @@ h2 {
 h3 {
 	font-size: 16px;
 	line-height: 26px;
-	margin: 0 0 15px 0;
+	margin: 0 0 30px 0;
 	color: #000000;
 	font-weight: 400;
 	font-family: $Europedemi;
@@ -161,9 +161,10 @@ ol {
 
 	li {
 		counter-increment: li;
+		padding-left: 5px;
 
 		&:before {
-			content: counter(li);
+			content: counter(li)'/';
 			display: block;
 			position: absolute;
 			left: -20px;
@@ -227,6 +228,8 @@ table {
 
 #wrapper {
 	flex: 1;
+	display: flex;
+	align-items: stretch;
 
 	@include wide {
 		display: flex;
@@ -250,17 +253,19 @@ table {
 .body_wrapper {
 	width: 100%;
 	flex: 1;
+	padding-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 
-	@include tablet {
-		display: flex;
-		flex-direction: column;
-		align-items: stretch;
-	}
 	@include wide {
-		width: 500px;
-		min-width: 100px;
+		width: 880px;
+		min-width: 880px;
 		max-width: 100%;
-		flex: 1;
+	}
+	@include hd {
+		width: 1150px;
+		min-width: 1150px;
 	}
 }
 
@@ -319,23 +324,31 @@ table {
 		}
 	}
 	@include desktop {
-		padding-bottom: 50px;
 		order: 1;
 	}
 	@include wide {
 		height: 100%;
-	}
-	@include hd {
 	}
 }
 
 .content {
 	width: 100%;
 	float: left;
-	max-width: 940px;
 	flex: 1;
 	padding: 20px 10px 0 10px;
+	
+	.page-article & {
+		max-width: 940px;
+	}
 
+	.page-404 & {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		align-items: center;
+		justify-content: center;
+	}
+	
 	img {
 		border: none;
 		float: left;
@@ -350,6 +363,8 @@ table {
 	p {
 		margin-top: 0;
 	}
+
+	
 	
 	@include desktop {
 		padding: 20px 20px 0 20px;
@@ -377,9 +392,9 @@ table {
 		max-width: 260px;
 	}
 	@include hd {
-		width: 300px;
-		min-width: 300px;
-		max-width: 300px;
+		width: 307px;
+		min-width: 307px;
+		max-width: 307px;
 	}
 }
 
