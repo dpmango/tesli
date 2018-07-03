@@ -3,11 +3,17 @@
 .main_slideshow {
 	width: 100%;
 	float: left;
+	position: relative;
 
 	.swiper-slide {
 		width: 100%;
 		float: left;
 		position: relative;
+	}
+
+	@include desktop {
+		z-index: 100;
+		width: calc(100% + 1px);
 	}
 }
 .main_slideshow__item {
@@ -16,7 +22,7 @@
 	@include aspect-ratio(16, 8.7);
 
 	@include tablet {
-		@include aspect-ratio(16, 7.2);
+		@include aspect-ratio(16, 7.35);
 	}
 }
 .main_slideshow__title {

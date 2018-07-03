@@ -339,6 +339,8 @@
 
 
 						<div class="datepicker_wrapper">
+							<label>Дата события</label>
+
 							<div class="datepicker_container">
 								<input type="text" class="datepicker_input">
 							</div>
@@ -403,6 +405,26 @@
 								<td>23.02.2018</td>
 							</tr>
 						</table>
+
+
+						<br clear="all">
+						<br>
+						<br>
+						<small>Заглушка для фото пользователя на странице пользователя</small>
+						<br>
+
+						<div class="user-empty"><svg>
+	<use xlink:href="img/sprite.svg#ico-user" />
+</svg>
+</div>
+
+
+
+						<br clear="all">
+						<hr>
+						<small>Всплывающее окно</small>
+
+						<a href="#modal-confirm" js-popup>Вызвать всплывающее окно?</a>
 					</form>
 				</main>
 			</div>
@@ -416,7 +438,7 @@
 			<div class="main_user__head__photo">
 				<div class="main_user__head__photo__img cover"><img src="img/ps_img/user-1.jpg" srcset="img/ps_img/user-1@2x.jpg" alt=""></div>
 			</div>
-	
+
 			<div class="main_user__head__info">
 				<div class="main_user__head__name">Дмитрий Овчинников</div>
 				<div class="main_user__head__post">Старший менеджер</div>
@@ -497,6 +519,20 @@
 		<div class="footer__developer">Разработка сайта — <a href="#" target="_blank">SEBEKON</a></div>
 	</div>
 </footer>
+
+
+
+
+<div id="modal-confirm" class="mfp-hide white-popup-block">
+	<h3>Сохранить изменения?</h3>
+
+	<p>Хотите ли вы сохранить изменения настроек или вернуть все как было</p>
+
+	<div class="ui-group" align="center">
+		<button type="submit">Сохранить</button>
+		<button class="btn-default" onclick="closeMfp();">Отменить</button>
+	</div>
+</div>
 <script src="js/vendor.js"></script>
 <script src="js/app.js"></script>
 

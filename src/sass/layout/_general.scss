@@ -121,7 +121,7 @@ small {
 
 hr {
 	width: 100%;
-	margin: 15px 0;
+	margin: 25px 0;
 	display: block;
 	clear: both;
 	overflow: auto;
@@ -253,7 +253,6 @@ table {
 .body_wrapper {
 	width: 100%;
 	flex: 1;
-	padding-bottom: 30px;
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -279,19 +278,8 @@ table {
 	flex: 1;
 
 	@include tablet {
-		width: calc(100% - 1px);
+		width: 100%;
 		border-right: 1px solid #e2e2e2;
-
-		&:before {
-			content: '';
-			display: block;
-			height: 160px;
-			width: 2px;
-			position: absolute;
-			right: -2px;
-			bottom: 0;
-			background: #ffffff;
-		}
 	}
 	@include wide {
 		align-content: flex-start;
@@ -309,19 +297,7 @@ table {
 	flex-direction: column;
 
 	@include tablet {
-		border-left: 1px solid #e2e2e2;
 		min-width: 100px;
-
-		&:before {
-			content: '';
-			display: block;
-			height: 160px;
-			width: 2px;
-			position: absolute;
-			left: -2px;
-			bottom: 0;
-			background: #ffffff;
-		}
 	}
 	@include desktop {
 		order: 1;
@@ -335,7 +311,7 @@ table {
 	width: 100%;
 	float: left;
 	flex: 1;
-	padding: 20px 10px 0 10px;
+	padding: 20px 10px 30px 10px;
 
 	.page-article & {
 		max-width: 940px;
@@ -367,10 +343,10 @@ table {
 
 
 	@include desktop {
-		padding: 20px 20px 0 20px;
+		padding: 20px 20px 30px 20px;
 	}
 	@include hd {
-		padding: 20px 30px 0 30px;
+		padding: 20px 30px 30px 30px;
 	}
 }
 
@@ -414,5 +390,5 @@ table {
 }
 
 br.clear{
-  clear: both;  
+  clear: both;
 }
