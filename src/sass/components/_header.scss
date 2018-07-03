@@ -468,10 +468,10 @@
 	}
 
 	@include mobileMax {
-		top: 9px;
+		top: 8px;
 		position: relative;
-		width: 80px;
-		height: 28px;
+		width: 180px;
+		height: 38px;
 		display: inline-block;
 		transition: opacity 0.3s linear;
 		opacity: 1;
@@ -485,9 +485,7 @@
 
 		.header-404 & {
 			position: relative;
-			left: 50%;
-			transform: scale(0.6) translate(-50%);
-			transform-origin: -100%;
+			left: 20px;
 		}
 	}
 	@include tablet {
@@ -527,7 +525,7 @@
 		padding: 0;
 	}
 	@include wide {
-		max-width: calc(100% - 480px);
+		max-width: calc(100% - 460px);
 		margin-left: 87px;
 		top: -7px;
 	}
@@ -580,6 +578,7 @@ button.header__top__search__btn-submit {
 	position: absolute;
 	right: 10px;
 	top: 13px;
+	margin: 0;
 
 	svg {
 		color: #909090;
@@ -603,7 +602,7 @@ button.header__top__search__btn-submit {
 		width: 30px;
 		height: 30px;
 		line-height: 30px;
-		right: -10px;
+		right: 0;
 
 		svg {
 			width: 15px;

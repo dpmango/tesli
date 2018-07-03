@@ -5,8 +5,6 @@
 	padding: 30px 10px;
 	border-top: 1px solid #e2e2e2;
 
-	
-
 	@include mobileMax {
 		&.sidebar__people-birth {
 			padding-top: 25px;
@@ -20,17 +18,18 @@
 		h3 {
 			border-bottom: 1px solid #e2e2e2;
 			padding-bottom: 10px;
+			margin-bottom: 10px;
 		}
 	}
 	@include desktop {
 		&.sidebar__people-birth {
 			border-bottom: 1px solid #e2e2e2;
 			margin-top: 6px;
-			margin-bottom: 10px;
+			margin-bottom: 8px;
 		}
 	}
 	@include hd {
-		padding: 5px 30px 32px 35px;
+		padding: 5px 30px 34px 35px;
 	}
 }
 .sidebar__people__list {
@@ -44,7 +43,7 @@
 .sidebar__people__user {
 	width: 100%;
 	float: left;
-	margin-top: 20px;
+	margin-top: 22px;
 
 	&:first-child {
 		margin-top: 0;

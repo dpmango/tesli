@@ -54,31 +54,50 @@ textarea {
 }
 input[type="button"],
 button {
-	background: $ColorRed;
+	margin-right: 25px;
+	background: #ed2324;
 	border: none;
 	color: #ffffff;
 	font-size: 13px;
-	line-height: 18px;
-	min-height: 62px;
+	line-height: 21px;
+	min-height: 60px;
 	min-width: 100px;
 	cursor: pointer;
+	text-transform: uppercase;
 	padding: 10px 40px;
+	text-decoration: none;
+	min-width: 30px;
+	display: inline-block;
 	transition: $TransitionLink;
+	margin-bottom: 10px;
 
 	&:focus {
 		outline: none;
 	}
 	&:active,
 	.no-touchevents &:hover {
-		background: lighten($ColorRed, 5%);
+		background: #ff2021;
+	}
+}
+.btn-default {
+	background: #f3f3f3;
+	color: #000000;
+
+	&:active,
+	.no-touchevents &:hover {
+		background: #dedede;
 	}
 }
 
 .ui-group {
-	margin-bottom: 20px;
+	padding-bottom: 20px;
+	position: relative;
+	width: 100%;
+	float: left;
+	
 
-	&.float-left {
-		float: left;
+	&.has-error input {
+		border-color: $ColorRed;
 	}
 
 	label {
@@ -92,22 +111,35 @@ button {
 	strong.error,
 	span.error {
 		color: $ColorRed;
-		font-size: 13px;
-		line-height: 18px;
+		font-size: 12px;
+		line-height: 16px;
+		position: relative;
+		padding-top: 6px;
+		clear: both;
 	}
 	textarea {
 		width: 100%;
-		min-width: 100%;
+		float: left;
 		max-width: 800px;
-		clear: both;
 		display: block;
+	}
+	select {
+		min-width: 150px;
+	}
+	.selectric {
+		min-width: 150px;
 	}
 
 	@include tablet {
-		min-width: 291px;
+		min-width: 264px;
 		padding-right: 20px;
-		margin: 0 0 20px 0;
-		float: none;
+
+		&.float-left {
+			width: auto;
+			float: none;
+			vertical-align: top;
+			display: inline-block;
+		}
 
 		input[type="text"],
 		input[type="password"],
@@ -115,15 +147,17 @@ button {
 		input[type="tel"],
 		input[type="number"],
 		input[type="search"] {
+			width: 100%;
 			float: left;
 			position: relative;
-			margin-right: 20px;
 		}
 	}
 }
 
 // Checkbox
 .ui-checkbox {
+	position: relative;
+
 	label {
 		display: inline-block;
 		margin-right: 10px;
@@ -200,17 +234,34 @@ button {
 	width: 100%;
 	float: left;
 
-	span {
+	label {
 		display: block;
-		margin: 0 10px;
-		float: left;
+		margin-bottom: 5px;
+		font-size: 14px;
+		color: #000000;
+	}
+
+	span {
+		display: inline-block;
+		margin: 0 5px;
 		line-height: 40px;
 	}
 }
 .datepicker_container {
 	position: relative;
-	float: left;
-	min-width: 170px;
+	display: inline-block;
+	width: auto;
+	width: 70px;
+	// max-width: 140px;
+	min-width: 135px;
+	margin-bottom: 10px;
+
+	input {
+		height: 45px;
+		line-height: 45px;
+		// max-width: 140px;
+		width: 135px;
+	}
 
 	&:before,
 	&:after {

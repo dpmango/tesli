@@ -56,6 +56,23 @@
 		max-height: 440px;
 	}
 }
+.user-empty {
+	width: 100%;
+	max-width: 350px;
+	background: #f7f7f7;
+	@include aspect-ratio(4, 2);
+
+	svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -38px 0 0 -38px;
+		display: block;
+		color: #c6c6c6;
+		width: 77px;
+		height: 77px;
+	}
+}
 .user__achievements {
 	width: 100%;
 	float: left;
@@ -233,6 +250,9 @@
 		color: $ColorRed;
 		margin-right: 5px;
 	}
+	.is-office {
+		color: $ColorRed;
+	}
 }
 
 .user__groups {
@@ -285,6 +305,10 @@
 		padding-top: 0;
 		margin-top: 0;
 		border-top: none;
+	}
+
+	h2 {
+		margin-bottom: 10px;
 	}
 
 	@include desktop {
